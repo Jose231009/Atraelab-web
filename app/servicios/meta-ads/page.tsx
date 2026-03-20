@@ -2,93 +2,118 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Meta Ads — Agencia Facebook e Instagram | AtraeLab",
+  title: "Meta Ads para Network Marketing — Facebook e Instagram | AtraeLab",
   description:
-    "Gestionamos tus campañas en Facebook e Instagram con estrategia avanzada. Pixel, CAPI, audiencias lookalike y creatividades que convierten.",
+    "Captamos distribuidores y clientes para tu red en Facebook e Instagram con pauta de alto rendimiento. Especialistas en MLM en LATAM y Europa. Desde $250 USD/mes.",
+  keywords: [
+    "meta ads network marketing",
+    "facebook ads mlm latam",
+    "instagram ads distribuidores",
+    "publicidad facebook argentina",
+    "meta ads españa latam",
+    "captacion distribuidores facebook",
+  ],
+  openGraph: {
+    title: "Meta Ads para Network Marketing | AtraeLab",
+    description:
+      "Generamos +1.200 leads calificados en 90 días para InCruises en Argentina y España. CPA: $8 USD. ROAS: 4.8x.",
+    url: "https://atraelab.com/servicios/meta-ads",
+  },
 };
 
 const includes = [
-  "Auditoría y diagnóstico inicial de tu cuenta y competencia",
-  "Configuración completa de Meta Pixel y Conversions API (CAPI)",
-  "Creación y optimización de audiencias lookalike y custom audiences",
-  "Diseño de estructura de campañas en funnel completo (TOF, MOF, BOF)",
-  "Producción de brief creativo con referencias y especificaciones",
-  "A/B testing sistemático de creatividades y copies",
-  "Retargeting dinámico para recuperar carritos y visitantes",
-  "Reportes semanales con métricas clave y proyecciones",
-  "Reunión mensual de análisis estratégico",
-  "Acceso al CRM LeadShield para gestión de leads",
+  "Configuración completa de Meta Business Suite",
+  "Campañas de captación de distribuidores",
+  "Audiencias lookalike de networkers activos",
+  "Creatividades A/B testeadas para network marketing",
+  "Retargeting dinámico de prospectos interesados",
+  "Píxel + CAPI configurado para máximo tracking",
+  "Campañas de reconocimiento de marca en LATAM y Europa",
+  "Reporte semanal en LeadShield CRM",
 ];
 
 const profiles = [
   {
-    icon: "🛍️",
-    title: "E-commerce en crecimiento",
+    icon: "🌐",
+    title: "Líderes de red que quieren duplicar su equipo",
     description:
-      "Tiendas online que quieren escalar ventas con un ROAS sostenible. Ideal para tickets de $2.000 a $50.000 ARS.",
+      "Si ya tenés una red activa y querés escalar captando distribuidores calificados, Meta Ads es tu palanca. Llegamos a personas con perfil networker en tu mercado.",
   },
   {
-    icon: "📚",
-    title: "Infoproductores y coaches",
+    icon: "💸",
+    title: "Networkers con inversión desde $250 USD/mes",
     description:
-      "Venta de cursos online, consultorías o programas de mentoría. Meta es el canal rey para educación digital.",
+      "Diseñamos campañas adaptadas a tu presupuesto real. Desde $250 USD/mes ya podés tener campañas de captación corriendo en Facebook e Instagram con pauta profesional.",
   },
   {
-    icon: "🏠",
-    title: "Servicios locales y profesionales",
+    icon: "🚀",
+    title: "Empresas MLM con expansión en LATAM/Europa",
     description:
-      "Clínicas, estudios, gimnasios y servicios que quieren generar leads calificados en su zona.",
+      "Operamos en Argentina, España, México, Colombia y más. Si tu compañía quiere entrar o crecer en nuevos mercados, llevamos la pauta local con estrategia regional.",
   },
 ];
 
 const faq = [
   {
-    q: "¿Cuánto presupuesto necesito para empezar?",
-    a: "Recomendamos un mínimo de $300 USD mensuales en pauta para que el algoritmo tenga suficiente data. Con menos inversión, el período de aprendizaje se extiende y los resultados son inconsistentes.",
+    q: "¿Cuál es la inversión mínima en Meta Ads?",
+    a: "Trabajamos desde $250 USD/mes en pauta publicitaria. Con ese presupuesto ya podemos lanzar campañas de captación de distribuidores con estructura profesional y datos suficientes para optimizar.",
   },
   {
-    q: "¿En cuánto tiempo veo resultados?",
-    a: "Los primeros datos significativos aparecen en 2-4 semanas. Los resultados óptimos se logran a los 60-90 días, cuando el algoritmo ya aprendió suficiente sobre tu audiencia y el testeo creativo arrojó ganadores.",
+    q: "¿Cuánto tiempo para ver resultados?",
+    a: "Los primeros leads llegan en las primeras 72 horas de lanzada la campaña. La optimización completa del algoritmo ocurre en los primeros 30 días, cuando ya tenemos suficientes datos de conversión.",
   },
   {
-    q: "¿Cómo manejo las creatividades? ¿Las hacen ustedes?",
-    a: "Te preparamos el brief creativo completo con referencias, guiones y especificaciones técnicas. La producción puede ser tuya, de un creador de contenido, o podemos recomendarte opciones. Hacemos la edición final optimizada para la plataforma.",
+    q: "¿Funciona Meta Ads para network marketing?",
+    a: "Es nuestra especialidad. Tenemos casos documentados con InCruises, donde generamos +1.200 leads calificados en 90 días en Argentina y España con CPA de $8 USD por prospecto.",
   },
   {
-    q: "¿Cuál es el contrato mínimo?",
-    a: "Trabajamos con contratos de 3 meses mínimo. La publicidad digital necesita tiempo para optimizar y evaluar. Contratos mensuales existen pero no los recomendamos porque no da tiempo suficiente para ver resultados reales.",
+    q: "¿Incluye las creatividades?",
+    a: "Sí. Diseñamos, testeamos y optimizamos todos los creativos. Hacemos A/B testing de imágenes, videos y copies específicos para el perfil del networker en cada mercado.",
   },
   {
-    q: "¿Qué pasa con mi cuenta cuando termina el contrato?",
-    a: "Tu cuenta siempre es tuya. Todas las configuraciones, píxeles, audiencias y datos históricos permanecen en tu Business Manager. Si decidís no continuar, te hacemos una sesión de traspaso para que quede todo documentado.",
+    q: "¿Cómo veo los resultados?",
+    a: "Accedés a un dashboard en tiempo real dentro de LeadShield CRM. Ves cada lead generado, su estado, el costo y el ROAS de cada campaña. Sin Excel, sin esperar el reporte.",
   },
 ];
 
 function AccordionItem({ q, a }: { q: string; a: string }) {
   return (
     <details className="group border-b border-white/8 last:border-0">
-      <summary className="flex items-center justify-between gap-4 py-4 cursor-pointer list-none text-white font-semibold text-sm hover:text-[#c8f000] transition-colors">
+      <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none text-white font-semibold text-sm hover:text-[#0866FF] transition-colors">
         {q}
-        <span className="flex-shrink-0 w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-xs group-open:border-[#c8f000]/40 group-open:text-[#c8f000] transition-all">
+        <span className="flex-shrink-0 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs group-open:border-[#0866FF]/60 group-open:text-[#0866FF] group-open:bg-[#0866FF]/10 transition-all">
           +
         </span>
       </summary>
-      <p className="text-[#a1a1aa] text-sm pb-4 leading-relaxed">{a}</p>
+      <p className="text-[#a1a1aa] text-sm pb-5 leading-relaxed">{a}</p>
     </details>
   );
 }
 
 export default function MetaAdsPage() {
   return (
-    <main className="relative min-h-screen">
-      {/* Hero */}
+    <main className="relative min-h-screen bg-black">
+      {/* HERO */}
       <div
-        className="relative pt-24 pb-16"
-        style={{ background: "radial-gradient(ellipse at top left, rgba(8,102,255,0.08) 0%, transparent 60%)" }}
+        className="relative pt-28 pb-20 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 20% 0%, rgba(8,102,255,0.12) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 80% 20%, rgba(200,240,0,0.04) 0%, transparent 60%)",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Grid decoration */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(8,102,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(8,102,255,1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-8">
+          <nav className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-10">
             <Link href="/" className="hover:text-[#c8f000] transition-colors">Inicio</Link>
             <span>/</span>
             <Link href="/#servicios" className="hover:text-[#c8f000] transition-colors">Servicios</Link>
@@ -96,73 +121,79 @@ export default function MetaAdsPage() {
             <span className="text-white">Meta Ads</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               {/* Platform badge */}
-              <div className="inline-flex items-center gap-3 mb-6">
+              <div
+                className="inline-flex items-center gap-3 mb-8 p-3 pr-5 rounded-2xl"
+                style={{ background: "rgba(8,102,255,0.08)", border: "1px solid rgba(8,102,255,0.25)" }}
+              >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center"
-                  style={{ background: "rgba(8,102,255,0.15)", border: "1px solid rgba(8,102,255,0.3)" }}
+                  className="w-11 h-11 rounded-xl flex items-center justify-center"
+                  style={{ background: "rgba(8,102,255,0.2)" }}
                 >
-                  <svg width="28" height="18" viewBox="0 0 40 24" fill="none">
-                    <path d="M10 12C10 8 12 5 15 5C17.5 5 19.5 7 20 12C20.5 7 22.5 5 25 5C28 5 30 8 30 12C30 16 28 19 25 19C22.5 19 20.5 17 20 12C19.5 17 17.5 19 15 19C12 19 10 16 10 12Z" fill="#0866FF"/>
+                  <svg width="24" height="16" viewBox="0 0 44 28" fill="none">
+                    <path
+                      d="M8 14C8 9.8 10.4 7 13.5 7C15.8 7 17.7 8.5 19 12C19.8 14 20.5 16 21 18C21.5 16 22.2 14 23 12C24.3 8.5 26.2 7 28.5 7C31.6 7 34 9.8 34 14C34 18.2 31.6 21 28.5 21C26.2 21 24.3 19.5 23 16C22.2 14 21.5 12 21 10C20.5 12 19.8 14 19 16C17.7 19.5 15.8 21 13.5 21C10.4 21 8 18.2 8 14Z"
+                      fill="#0866FF"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#0866FF]">Meta Ads</p>
+                  <p className="font-bold text-xs uppercase tracking-widest" style={{ color: "#0866FF" }}>Meta Ads</p>
                   <p className="text-[#a1a1aa] text-xs">Facebook & Instagram</p>
                 </div>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-tight mb-5">
-                Domina Facebook{" "}
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
+                META ADS PARA{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #c8f000, #a8d400)",
+                    background: "linear-gradient(135deg, #0866FF 0%, #0194F3 60%, #c8f000 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                   }}
                 >
-                  e Instagram
+                  NETWORK MARKETING
                 </span>
               </h1>
 
-              <p className="text-[#a1a1aa] text-lg leading-relaxed mb-8">
-                Creamos audiencias precisas, creatividades que convierten y campañas que escalan. De prospección a retargeting, cubrimos todo el funnel con estrategia data-driven.
+              <p className="text-[#a1a1aa] text-lg leading-relaxed mb-10">
+                Captamos distribuidores y clientes para tu red en Facebook e Instagram con pauta de alto rendimiento. Especialistas en redes de mercadeo en LATAM y Europa.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/#contacto"
-                  className="inline-flex items-center justify-center gap-2 bg-[#c8f000] text-black font-black text-sm uppercase tracking-wide px-8 py-4 rounded-full"
-                  style={{ boxShadow: "0 0 30px rgba(200,240,0,0.3)" }}
+                  className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+                  style={{ background: "#0866FF", color: "white", boxShadow: "0 0 35px rgba(8,102,255,0.4)" }}
                 >
-                  Auditoría gratuita →
+                  QUIERO CAPTAR DISTRIBUIDORES →
                 </Link>
                 <Link
                   href="/blog/como-triplicar-roas-meta-ads-90-dias"
-                  className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-[#c8f000]/40 hover:text-[#c8f000] transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-[#0866FF]/50 hover:text-[#0866FF] transition-all duration-300"
                 >
-                  Leer guía →
+                  Leer guía de Meta Ads →
                 </Link>
               </div>
             </div>
 
-            {/* Stats */}
+            {/* Stats grid */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "4.8x", label: "ROAS promedio alcanzado", sub: "en clientes activos" },
-                { value: "-38%", label: "Reducción de CPA", sub: "en los primeros 90 días" },
-                { value: "2M+", label: "USD gestionados", sub: "en Meta Ads" },
-                { value: "5.0★", label: "Calificación Google", sub: "de nuestros clientes" },
+                { value: "4.8x", label: "ROAS InCruises", sub: "Argentina + España", color: "#0866FF" },
+                { value: "+340%", label: "Nuevos distribuidores", sub: "Q1 campaña Meta", color: "#c8f000" },
+                { value: "$8 USD", label: "CPA por lead calificado", sub: "promedio campañas NM", color: "#0866FF" },
+                { value: "1.200+", label: "Leads en 90 días", sub: "caso InCruises real", color: "#c8f000" },
               ].map((s) => (
                 <div
                   key={s.label}
                   className="p-5 rounded-2xl"
                   style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
                 >
-                  <p className="text-[#c8f000] font-black text-3xl leading-none mb-1">{s.value}</p>
+                  <p className="font-black text-3xl leading-none mb-1" style={{ color: s.color }}>{s.value}</p>
                   <p className="text-white font-bold text-sm">{s.label}</p>
                   <p className="text-[#a1a1aa] text-xs mt-0.5">{s.sub}</p>
                 </div>
@@ -172,10 +203,17 @@ export default function MetaAdsPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        {/* What's included */}
-        <div className="mb-20">
-          <h2 className="text-white font-black text-2xl sm:text-3xl uppercase mb-8">¿Qué incluye el servicio?</h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-28">
+
+        {/* QUÉ INCLUYE */}
+        <div className="mt-20 mb-20">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-1 h-8 rounded-full" style={{ background: "#0866FF" }} />
+            <h2 className="text-white font-black text-2xl sm:text-3xl uppercase">¿Qué incluye el servicio?</h2>
+          </div>
+          <p className="text-[#a1a1aa] text-sm mb-8 pl-4">
+            Todo lo que necesitás para captar distribuidores calificados desde el día 1.
+          </p>
           <div className="grid sm:grid-cols-2 gap-3">
             {includes.map((item, i) => (
               <div
@@ -183,10 +221,11 @@ export default function MetaAdsPage() {
                 className="flex items-start gap-3 p-4 rounded-xl"
                 style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}
               >
-                <div className="w-5 h-5 rounded-full bg-[#c8f000] flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M1 4L4 7L9 1" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <div
+                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-black"
+                  style={{ background: "rgba(8,102,255,0.15)", color: "#0866FF", border: "1px solid rgba(8,102,255,0.3)" }}
+                >
+                  {i + 1}
                 </div>
                 <p className="text-[#a1a1aa] text-sm leading-relaxed">{item}</p>
               </div>
@@ -194,9 +233,65 @@ export default function MetaAdsPage() {
           </div>
         </div>
 
-        {/* Who is it for */}
+        {/* CASO DE ÉXITO */}
         <div className="mb-20">
-          <h2 className="text-white font-black text-2xl sm:text-3xl uppercase mb-8">¿Para quién es?</h2>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-8 rounded-full bg-[#c8f000]" />
+            <h2 className="text-white font-black text-2xl sm:text-3xl uppercase">Caso de éxito real</h2>
+          </div>
+          <div
+            className="relative overflow-hidden rounded-2xl p-8 sm:p-12"
+            style={{
+              background: "linear-gradient(135deg, rgba(8,102,255,0.1) 0%, rgba(0,0,0,0.5) 100%)",
+              border: "1px solid rgba(8,102,255,0.3)",
+            }}
+          >
+            {/* Glow accent */}
+            <div
+              className="absolute top-0 right-0 w-80 h-80 opacity-15 pointer-events-none"
+              style={{
+                background: "radial-gradient(circle, #0866FF 0%, transparent 70%)",
+                transform: "translate(30%, -30%)",
+              }}
+            />
+            <div className="relative">
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-bold uppercase tracking-widest"
+                style={{ background: "rgba(8,102,255,0.2)", color: "#0866FF", border: "1px solid rgba(8,102,255,0.4)" }}
+              >
+                ✦ InCruises — Argentina & España
+              </div>
+              <blockquote className="text-white text-lg sm:text-xl font-semibold leading-relaxed mb-10 max-w-3xl">
+                "Generamos +1.200 leads calificados en 90 días para el equipo de InCruises en Argentina y España.
+                CPA promedio: $8 USD por prospecto calificado. ROAS: 4.8x sobre la inversión publicitaria."
+              </blockquote>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {[
+                  { value: "1.200+", label: "Leads en 90 días" },
+                  { value: "$8 USD", label: "CPA promedio" },
+                  { value: "4.8x", label: "ROAS alcanzado" },
+                  { value: "+340%", label: "Distribuidores Q1" },
+                ].map((m) => (
+                  <div
+                    key={m.label}
+                    className="text-center p-4 rounded-xl"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(8,102,255,0.2)" }}
+                  >
+                    <p className="text-[#c8f000] font-black text-2xl sm:text-3xl leading-none mb-2">{m.value}</p>
+                    <p className="text-[#a1a1aa] text-xs">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* PARA QUIÉN ES */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-8 rounded-full" style={{ background: "#0866FF" }} />
+            <h2 className="text-white font-black text-2xl sm:text-3xl uppercase">¿Para quién es?</h2>
+          </div>
           <div className="grid sm:grid-cols-3 gap-5">
             {profiles.map((p) => (
               <div
@@ -204,8 +299,8 @@ export default function MetaAdsPage() {
                 className="p-6 rounded-2xl"
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
               >
-                <div className="text-3xl mb-3">{p.icon}</div>
-                <h3 className="text-white font-black text-lg mb-2">{p.title}</h3>
+                <div className="text-4xl mb-4">{p.icon}</div>
+                <h3 className="text-white font-black text-base mb-3">{p.title}</h3>
                 <p className="text-[#a1a1aa] text-sm leading-relaxed">{p.description}</p>
               </div>
             ))}
@@ -214,36 +309,52 @@ export default function MetaAdsPage() {
 
         {/* FAQ */}
         <div className="mb-20">
-          <h2 className="text-white font-black text-2xl sm:text-3xl uppercase mb-8">Preguntas frecuentes</h2>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-8 rounded-full" style={{ background: "#0866FF" }} />
+            <h2 className="text-white font-black text-2xl sm:text-3xl uppercase">Preguntas frecuentes</h2>
+          </div>
           <div
-            className="p-6 rounded-2xl"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
+            className="rounded-2xl"
+            style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            {faq.map((item) => (
-              <AccordionItem key={item.q} q={item.q} a={item.a} />
-            ))}
+            <div className="px-6">
+              {faq.map((item) => (
+                <AccordionItem key={item.q} q={item.q} a={item.a} />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Final CTA */}
+        {/* CTA FINAL */}
         <div
-          className="p-10 rounded-2xl text-center"
+          className="relative overflow-hidden p-10 sm:p-14 rounded-2xl text-center"
           style={{
-            background: "rgba(200,240,0,0.04)",
-            border: "1px solid rgba(200,240,0,0.2)",
+            background: "linear-gradient(135deg, rgba(8,102,255,0.12) 0%, rgba(200,240,0,0.04) 100%)",
+            border: "1px solid rgba(8,102,255,0.3)",
           }}
         >
-          <h3 className="text-white font-black text-3xl mb-3">¿Listo para escalar con Meta Ads?</h3>
-          <p className="text-[#a1a1aa] text-lg mb-7 max-w-lg mx-auto">
-            Reservá tu auditoría gratuita y en 30 minutos te mostramos el potencial real de tu negocio en Facebook e Instagram.
-          </p>
-          <Link
-            href="/#contacto"
-            className="inline-flex items-center gap-2 bg-[#c8f000] text-black font-black text-sm uppercase tracking-wide px-10 py-4 rounded-full"
-            style={{ boxShadow: "0 0 40px rgba(200,240,0,0.35)" }}
-          >
-            Quiero mi auditoría gratuita →
-          </Link>
+          <div
+            className="absolute bottom-0 left-1/2 w-96 h-48 opacity-20 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse, #0866FF 0%, transparent 70%)", transform: "translate(-50%, 50%)" }}
+          />
+          <div className="relative">
+            <p className="font-bold text-xs uppercase tracking-widest mb-3" style={{ color: "#0866FF" }}>
+              Meta Ads · Network Marketing
+            </p>
+            <h3 className="text-white font-black text-3xl sm:text-4xl mb-4">
+              ¿Listo para captar distribuidores en Meta?
+            </h3>
+            <p className="text-[#a1a1aa] text-lg mb-8 max-w-xl mx-auto">
+              Contanos tu negocio y en 30 minutos te mostramos cómo podemos duplicar tu red en Facebook e Instagram.
+            </p>
+            <Link
+              href="/#contacto"
+              className="inline-flex items-center gap-2 font-black text-sm uppercase tracking-wide px-12 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              style={{ background: "#0866FF", color: "white", boxShadow: "0 0 50px rgba(8,102,255,0.45)" }}
+            >
+              QUIERO CAPTAR DISTRIBUIDORES EN META →
+            </Link>
+          </div>
         </div>
       </div>
     </main>
