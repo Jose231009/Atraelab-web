@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import Link from "next/link";
 import { MetaCube, GoogleSphere, TikTokCylinder } from "@/components/Icons3D";
 
 // Official Meta logo — infinity symbol
@@ -95,6 +96,7 @@ const services = [
     accentColor: "#0866FF",
     accentBg: "rgba(8,102,255,0.06)",
     icon: <MetaCube size={72} />,
+    href: "/servicios/meta-ads",
   },
   {
     id: "google",
@@ -106,6 +108,7 @@ const services = [
     accentColor: "#4285F4",
     accentBg: "rgba(66,133,244,0.06)",
     icon: <GoogleSphere size={72} />,
+    href: "/servicios/google-ads",
   },
   {
     id: "tiktok",
@@ -117,6 +120,7 @@ const services = [
     accentColor: "#ffffff",
     accentBg: "rgba(105,201,208,0.06)",
     icon: <TikTokCylinder size={72} />,
+    href: "/servicios/tiktok-ads",
   },
 ];
 
@@ -203,9 +207,12 @@ function ServiceCard({
       {/* Bottom line */}
       <div className="relative z-10 mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
         <span className="text-xs text-[#a1a1aa] font-medium">Estrategia incluida</span>
-        <button className="text-[#c8f000] text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+        <Link
+          href={service.href}
+          className="text-[#c8f000] text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all duration-300 hover:underline"
+        >
           Ver más <span>→</span>
-        </button>
+        </Link>
       </div>
     </motion.div>
   );
