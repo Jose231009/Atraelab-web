@@ -160,7 +160,7 @@ export default function GoogleAdsPage() {
                 </div>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
                 GOOGLE ADS PARA{" "}
                 <span
                   style={{
@@ -181,7 +181,7 @@ export default function GoogleAdsPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/#contacto"
-                  className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                   style={{
                     background: "linear-gradient(135deg, #4285F4, #1a73e8)",
                     color: "white",
@@ -192,7 +192,7 @@ export default function GoogleAdsPage() {
                 </Link>
                 <Link
                   href="/blog/google-ads-vs-meta-ads-cual-usar"
-                  className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-[#4285F4]/50 hover:text-[#4285F4] transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-[#4285F4]/50 hover:text-[#4285F4] transition-all duration-300 w-full sm:w-auto"
                 >
                   Google vs Meta → ¿cuál usar?
                 </Link>
@@ -387,7 +387,7 @@ export default function GoogleAdsPage() {
             </p>
             <Link
               href="/#contacto"
-              className="inline-flex items-center gap-2 font-black text-sm uppercase tracking-wide px-12 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 sm:px-12 py-4 rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               style={{
                 background: "linear-gradient(135deg, #4285F4, #1a73e8)",
                 color: "white",

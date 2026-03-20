@@ -54,7 +54,7 @@ function DashboardMockup() {
             ...pos,
             boxShadow: "0 4px 20px rgba(200,240,0,0.12)",
           }}
-          className="absolute flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold text-white backdrop-blur-md border border-[#c8f000]/20 bg-black/60 z-10"
+          className="hidden sm:flex absolute items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold text-white backdrop-blur-md border border-[#c8f000]/20 bg-black/60 z-10"
         >
           <div className="w-1.5 h-1.5 rounded-full bg-[#c8f000] opacity-80" />
           {label}
@@ -63,7 +63,7 @@ function DashboardMockup() {
 
       {/* Main dashboard card */}
       <div
-        className="relative w-full max-w-[340px] sm:max-w-[360px] lg:max-w-[390px] rounded-2xl p-5 overflow-hidden"
+        className="relative w-full rounded-2xl p-5 overflow-hidden"
         style={{
           background: "rgba(255,255,255,0.04)",
           backdropFilter: "blur(20px)",
@@ -192,7 +192,7 @@ export default function Hero() {
                     style={{ willChange: "transform" }}
                     className={`block ${
                       line.isAccent ? "gradient-text" : "text-white"
-                    } text-[2.25rem] sm:text-5xl lg:text-7xl xl:text-8xl`}
+                    } text-3xl sm:text-5xl lg:text-7xl xl:text-8xl`}
                   >
                     {line.text}
                   </motion.span>
@@ -285,8 +285,8 @@ export default function Hero() {
           </div>
 
           {/* RIGHT — Dashboard */}
-          <div className="flex justify-center lg:justify-end mt-6 lg:mt-0 px-2 sm:px-0">
-            <div className="relative">
+          <div className="flex justify-center lg:justify-end mt-6 lg:mt-0 w-full overflow-hidden px-0">
+            <div className="relative w-full max-w-[390px]">
               <DashboardMockup />
             </div>
           </div>

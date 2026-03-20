@@ -194,7 +194,7 @@ export default function NetworkSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6 }}
-          className="grid grid-cols-3 gap-4 mb-12 p-5 rounded-2xl"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-5 rounded-2xl"
           style={{
             background: "rgba(200,240,0,0.03)",
             border: "1px solid rgba(200,240,0,0.12)",

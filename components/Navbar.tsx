@@ -116,7 +116,7 @@ export default function Navbar() {
               {/* Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 text-white hover:text-[#c8f000] transition-colors"
+                className="lg:hidden flex items-center justify-center min-w-[44px] min-h-[44px] text-white hover:text-[#c8f000] transition-colors"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait">

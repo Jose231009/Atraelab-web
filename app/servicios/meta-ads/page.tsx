@@ -145,7 +145,7 @@ export default function MetaAdsPage() {
                 </div>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
                 META ADS PARA{" "}
                 <span
                   style={{
@@ -166,14 +166,14 @@ export default function MetaAdsPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/#contacto"
-                  className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                   style={{ background: "#0866FF", color: "white", boxShadow: "0 0 35px rgba(8,102,255,0.4)" }}
                 >
                   QUIERO CAPTAR DISTRIBUIDORES →
                 </Link>
                 <Link
                   href="/blog/como-triplicar-roas-meta-ads-90-dias"
-                  className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-[#0866FF]/50 hover:text-[#0866FF] transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-[#0866FF]/50 hover:text-[#0866FF] transition-all duration-300 w-full sm:w-auto"
                 >
                   Leer guía de Meta Ads →
                 </Link>
@@ -349,7 +349,7 @@ export default function MetaAdsPage() {
             </p>
             <Link
               href="/#contacto"
-              className="inline-flex items-center gap-2 font-black text-sm uppercase tracking-wide px-12 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 font-black text-sm uppercase tracking-wide px-8 sm:px-12 py-4 rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               style={{ background: "#0866FF", color: "white", boxShadow: "0 0 50px rgba(8,102,255,0.45)" }}
             >
               QUIERO CAPTAR DISTRIBUIDORES EN META →
