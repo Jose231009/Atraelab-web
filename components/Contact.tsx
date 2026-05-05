@@ -11,11 +11,13 @@ import { CheckCircle2, AlertCircle, Loader2, Zap } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  business: z.string().min(2, "Contanos el nombre de tu red o negocio"),
   email: z.string().email("Ingresá un email válido"),
   whatsapp: z
     .string()
     .min(8, "El WhatsApp debe tener al menos 8 dígitos")
     .regex(/^\+?[\d\s\-()]+$/, "Número de teléfono inválido"),
+  teamSize: z.string().min(1, "Seleccioná la etapa de tu operación"),
   message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres"),
 });
 
@@ -77,8 +79,6 @@ export default function Contact() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* LEFT — Copy */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,9 @@ export default function Contact() {
               className="inline-flex items-center gap-2 bg-[#c8f000]/10 border border-[#c8f000]/20 rounded-full px-4 py-1.5 mb-6"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-[#c8f000]" />
-              <span className="text-[#c8f000] text-xs font-bold uppercase tracking-widest">Contacto</span>
+              <span className="text-[#c8f000] text-xs font-bold uppercase tracking-widest">
+                Contacto
+              </span>
             </motion.div>
 
             <motion.h2
@@ -95,9 +97,8 @@ export default function Contact() {
               transition={{ delay: 0.1 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase leading-tight tracking-tight"
             >
-              ¿Listo para{" "}
-              <span className="gradient-text">encender</span>{" "}
-              tu crecimiento?
+              ¿Listo para ordenar{" "}
+              <span className="text-[#c8f000]">tu captación</span>?
             </motion.h2>
 
             <motion.p
@@ -106,10 +107,10 @@ export default function Contact() {
               transition={{ delay: 0.2 }}
               className="mt-5 text-[#a1a1aa] text-base leading-relaxed"
             >
-              Reservá tu auditoría gratuita de 30 minutos. Analizamos tu situación actual y te mostramos exactamente cómo podemos escalar tu negocio.
+              Dejanos tus datos y te mostramos qué está frenando hoy tu
+              reclutamiento: tráfico, filtro, seguimiento o cierre.
             </motion.p>
 
-            {/* Benefits */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -117,47 +118,47 @@ export default function Contact() {
               className="mt-8 space-y-4"
             >
               {[
-                { icon: "🎯", text: "Análisis de tu pauta actual sin costo" },
-                { icon: "📊", text: "Proyección de ROAS para los próximos 90 días" },
-                { icon: "🚀", text: "Plan de acción personalizado para tu industria" },
-                { icon: "💬", text: "Respuesta en menos de 24 horas hábiles" },
-              ].map((b) => (
-                <div key={b.text} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-[#c8f000]/10 border border-[#c8f000]/20 flex items-center justify-center text-sm flex-shrink-0">
-                    {b.icon}
+                { icon: "01", text: "Análisis de tu embudo y de la velocidad de respuesta" },
+                { icon: "02", text: "Mapa claro de canales, mensaje y CRM" },
+                { icon: "03", text: "Recomendación puntual para la etapa de tu red" },
+                { icon: "04", text: "Respuesta en menos de 24 horas hábiles" },
+              ].map((item) => (
+                <div key={item.text} className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-[#c8f000]/10 border border-[#c8f000]/20 flex items-center justify-center text-sm flex-shrink-0 text-[#c8f000] font-bold">
+                    {item.icon}
                   </div>
-                  <p className="text-white text-sm">{b.text}</p>
+                  <p className="text-white text-sm">{item.text}</p>
                 </div>
               ))}
             </motion.div>
 
-            {/* Trust logos */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5 }}
               className="mt-10 pt-8 border-t border-white/8"
             >
-              <p className="text-[#a1a1aa] text-xs uppercase tracking-widest mb-4">Partners certificados</p>
+              <p className="text-[#a1a1aa] text-xs uppercase tracking-widest mb-4">
+                Canales que trabajamos
+              </p>
               <div className="flex items-center gap-4 flex-wrap">
                 {[
-                  { label: "Meta Business Partner", color: "#c8f000" },
-                  { label: "Google Partner", color: "#c8f000" },
-                  { label: "TikTok Ads Partner", color: "#c8f000" },
-                ].map((p) => (
+                  { label: "Meta Ads", color: "#0866FF" },
+                  { label: "Google Ads", color: "#4285F4" },
+                  { label: "TikTok Ads", color: "#69C9D0" },
+                ].map((item) => (
                   <div
-                    key={p.label}
+                    key={item.label}
                     className="flex items-center gap-2 bg-white/5 border border-white/8 rounded-full px-3 py-1.5"
                   >
-                    <div className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-                    <span className="text-[#a1a1aa] text-xs font-medium">{p.label}</span>
+                    <div className="w-2 h-2 rounded-full" style={{ background: item.color }} />
+                    <span className="text-[#a1a1aa] text-xs font-medium">{item.label}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
           </div>
 
-          {/* RIGHT — Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -172,10 +173,8 @@ export default function Contact() {
                 boxShadow: "0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,240,0,0.05)",
               }}
             >
-              {/* Card glow */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-[#c8f000] opacity-5 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Success state */}
               {status === "success" ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -190,9 +189,10 @@ export default function Contact() {
                   >
                     <CheckCircle2 className="w-10 h-10 text-[#c8f000]" />
                   </motion.div>
-                  <h3 className="text-white font-black text-2xl">¡Mensaje enviado!</h3>
+                  <h3 className="text-white font-black text-2xl">Mensaje enviado</h3>
                   <p className="text-[#a1a1aa] text-sm max-w-xs">
-                    Te contactaremos en menos de 24 horas hábiles para coordinar tu auditoría gratuita.
+                    Te contactaremos en menos de 24 horas hábiles para revisar
+                    tu operación y proponer el siguiente paso.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
@@ -204,8 +204,10 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 relative z-10">
                   <div className="mb-6">
-                    <h3 className="text-white font-black text-xl">Auditoría gratuita</h3>
-                    <p className="text-[#a1a1aa] text-sm mt-1">Completá el formulario y nos ponemos en contacto.</p>
+                    <h3 className="text-white font-black text-xl">Diagnóstico inicial</h3>
+                    <p className="text-[#a1a1aa] text-sm mt-1">
+                      Completá el formulario y te escribimos con contexto.
+                    </p>
                   </div>
 
                   <div className="flex flex-col gap-1.5">
@@ -219,39 +221,76 @@ export default function Contact() {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <FieldLabel>Email</FieldLabel>
+                    <FieldLabel>Red o negocio</FieldLabel>
                     <input
-                      {...register("email")}
-                      type="email"
-                      placeholder="tu@email.com"
+                      {...register("business")}
+                      placeholder="Nombre de tu equipo, red o marca"
                       className={inputClass}
                     />
-                    <FieldError message={errors.email?.message} />
+                    <FieldError message={errors.business?.message} />
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div className="flex flex-col gap-1.5">
+                      <FieldLabel>WhatsApp</FieldLabel>
+                      <input
+                        {...register("whatsapp")}
+                        type="tel"
+                        placeholder="+54 9 11 1234-5678"
+                        className={inputClass}
+                      />
+                      <FieldError message={errors.whatsapp?.message} />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <FieldLabel>Email</FieldLabel>
+                      <input
+                        {...register("email")}
+                        type="email"
+                        placeholder="tu@email.com"
+                        className={inputClass}
+                      />
+                      <FieldError message={errors.email?.message} />
+                    </div>
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <FieldLabel>WhatsApp</FieldLabel>
-                    <input
-                      {...register("whatsapp")}
-                      type="tel"
-                      placeholder="+54 9 11 1234-5678"
+                    <FieldLabel>Etapa actual</FieldLabel>
+                    <select
+                      {...register("teamSize")}
+                      defaultValue=""
                       className={inputClass}
-                    />
-                    <FieldError message={errors.whatsapp?.message} />
+                    >
+                      <option value="" disabled className="bg-[#0a0a0a] text-[#a1a1aa]">
+                        Seleccioná una opción
+                      </option>
+                      <option value="Estoy empezando" className="bg-[#0a0a0a] text-white">
+                        Estoy empezando
+                      </option>
+                      <option value="Tengo un equipo pequeño" className="bg-[#0a0a0a] text-white">
+                        Tengo un equipo pequeño
+                      </option>
+                      <option value="Ya tengo líderes activos" className="bg-[#0a0a0a] text-white">
+                        Ya tengo líderes activos
+                      </option>
+                      <option value="Ya invierto en pauta" className="bg-[#0a0a0a] text-white">
+                        Ya invierto en pauta
+                      </option>
+                    </select>
+                    <FieldError message={errors.teamSize?.message} />
                   </div>
 
                   <div className="flex flex-col gap-1.5">
                     <FieldLabel>Mensaje</FieldLabel>
                     <textarea
                       {...register("message")}
-                      placeholder="Contanos sobre tu negocio y objetivos..."
+                      placeholder="Contanos qué querés mejorar: más volumen, mejor filtro, seguimiento, show-up o cierre."
                       rows={4}
                       className={`${inputClass} resize-none`}
                     />
                     <FieldError message={errors.message?.message} />
                   </div>
 
-                  {/* Error banner */}
                   {status === "error" && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
@@ -265,7 +304,6 @@ export default function Contact() {
                     </motion.div>
                   )}
 
-                  {/* Submit */}
                   <motion.button
                     type="submit"
                     disabled={status === "loading"}
@@ -281,19 +319,18 @@ export default function Contact() {
                     ) : (
                       <>
                         <Zap size={16} />
-                        Quiero Crecer
+                        Quiero el diagnóstico
                       </>
                     )}
                   </motion.button>
 
                   <p className="text-[#a1a1aa] text-xs text-center">
-                    Sin spam. Tu información está segura y no se comparte con terceros.
+                    Sin spam. Tu información se usa solo para responderte.
                   </p>
                 </form>
               )}
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

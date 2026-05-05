@@ -8,20 +8,19 @@ import Results from "@/components/Results";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
-import CustomCursor from "@/components/CustomCursor";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      <CustomCursor />
       <Navbar />
       <Hero />
       <SectionDivider />
-      <Services />
-      <SectionDivider />
       <NetworkSection />
+      <SectionDivider />
+      <Services />
       <SectionDivider />
       <HowWeWork />
       <SectionDivider />
@@ -32,6 +31,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <MobileStickyCTA />
       <CookieBanner />
     </main>
   );

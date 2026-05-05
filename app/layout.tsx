@@ -14,21 +14,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://atraelab.com"),
   title: {
-    default: "AtraeLab — Encendé tu Demanda | Agencia de Performance Marketing",
+    default: "AtraeLab | Sistema de Leads para Network Marketing",
     template: "%s | AtraeLab",
   },
   description:
-    "AtraeLab es una agencia de performance marketing especializada en Meta Ads, Google Ads y TikTok Ads. Generamos leads de calidad, optimizamos tu ROAS y escalamos tu negocio con estrategia data-driven.",
+    "AtraeLab ayuda a equipos de network marketing a generar prospectos calificados, hacer seguimiento rapido y convertir mas presentaciones con pauta, funnel y CRM.",
   keywords: [
-    "agencia marketing digital",
-    "performance marketing",
+    "network marketing",
+    "leads network marketing",
+    "prospectos multinivel",
+    "crm network marketing",
+    "generacion de leads mlm",
     "meta ads",
     "google ads",
     "tiktok ads",
-    "generación de leads",
-    "ROAS",
-    "pauta digital",
-    "marketing latinoamerica",
+    "embudos de captacion",
+    "whatsapp seguimiento",
     "atraelab",
   ],
   authors: [{ name: "AtraeLab", url: "https://atraelab.com" }],
@@ -50,23 +51,23 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://atraelab.com",
     siteName: "AtraeLab",
-    title: "AtraeLab — Encendé tu Demanda",
+    title: "AtraeLab | Sistema de Leads para Network Marketing",
     description:
-      "Agencia de performance marketing. Meta Ads · Google Ads · TikTok Ads · CRM LeadShield. Escalamos tu negocio con datos.",
+      "Pauta, funnel y CRM para equipos de network marketing que necesitan mas prospectos calificados y mejor seguimiento.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AtraeLab — Agencia de Performance Marketing",
+        alt: "AtraeLab para Network Marketing",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AtraeLab — Encendé tu Demanda",
+    title: "AtraeLab | Sistema de Leads para Network Marketing",
     description:
-      "Agencia de performance marketing. Meta Ads · Google Ads · TikTok Ads · CRM LeadShield.",
+      "Pauta, funnel y CRM para captar y seguir prospectos de network marketing.",
     images: ["/og-image.png"],
     creator: "@atraelab",
   },
@@ -89,19 +90,19 @@ export default function RootLayout({
     name: "AtraeLab",
     url: "https://atraelab.com",
     description:
-      "Agencia de performance marketing especializada en Meta Ads, Google Ads y TikTok Ads.",
+      "Sistema de captacion y seguimiento para equipos de network marketing con Meta Ads, Google Ads, TikTok Ads y CRM propio.",
     founder: {
       "@type": "Person",
       name: "AtraeLab Team",
     },
     areaServed: ["Argentina", "Latinoamérica", "España"],
     serviceType: [
+      "Network Marketing Lead Generation",
       "Meta Ads",
       "Google Ads",
       "TikTok Ads",
-      "Performance Marketing",
-      "Lead Generation",
-      "CRM",
+      "WhatsApp Follow-Up",
+      "CRM para Leads",
     ],
     sameAs: [
       "https://www.instagram.com/atraelab",

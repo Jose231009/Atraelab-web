@@ -1,7 +1,9 @@
 export interface EmailPayload {
   name: string;
+  business: string;
   email: string;
   whatsapp: string;
+  teamSize: string;
   message: string;
 }
 

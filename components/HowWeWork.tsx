@@ -65,15 +65,15 @@ const steps = [
     title: "DIAGNÓSTICO",
     timing: "Semana 1",
     description:
-      "Auditoría completa de tu negocio, competencia, audiencias y oportunidades de crecimiento.",
+      "Revisamos oferta, país, perfil de prospecto, velocidad de respuesta y cómo están reclutando hoy.",
     icon: <LupaIcon />,
   },
   {
     number: "02",
-    title: "ESTRATEGIA",
+    title: "FUNNEL",
     timing: "Semana 1–2",
     description:
-      "Plan de medios personalizado con objetivos SMART, presupuesto optimizado y creatividades definidas.",
+      "Definimos anuncio, landing, filtro y mensaje de entrada para que tu equipo reciba mejores conversaciones.",
     icon: <MapIcon />,
   },
   {
@@ -81,23 +81,23 @@ const steps = [
     title: "LANZAMIENTO",
     timing: "Semana 2–3",
     description:
-      "Activación de campañas, píxeles, CRM LeadShield y seguimiento de conversiones en tiempo real.",
+      "Activamos campañas, eventos, LeadShield CRM y reglas básicas de asignación y seguimiento.",
     icon: <RocketIcon />,
   },
   {
     number: "04",
-    title: "OPTIMIZACIÓN",
+    title: "SEGUIMIENTO",
     timing: "Mes 1–3",
     description:
-      "Análisis semanal, A/B testing constante y escala de lo que funciona. Reportes 100% transparentes.",
+      "Miramos calidad del lead, show-up, contacto y presentaciones. No solo costo por formulario.",
     icon: <ChartIcon />,
   },
   {
     number: "05",
-    title: "ESCALA TOTAL",
+    title: "ESCALA",
     timing: "Mes 3+",
     description:
-      "Duplicamos presupuesto en canales ganadores y expandimos a nuevas audiencias y plataformas.",
+      "Escalamos presupuesto y equipo solo cuando el sistema ya sostiene volumen sin perder orden.",
     icon: <ArrowDoubleIcon />,
   },
 ];
@@ -227,8 +227,8 @@ export default function HowWeWork() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight"
           >
-            De cero a resultados{" "}
-            <span className="gradient-text">en 5 pasos</span>
+            Cómo armamos{" "}
+            <span className="text-[#c8f000]">el sistema</span>
           </motion.h2>
 
           <motion.p
@@ -237,8 +237,8 @@ export default function HowWeWork() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-[#a1a1aa] text-lg max-w-xl mx-auto"
           >
-            Nuestro proceso probado, inspirado en las agencias top globales.
-            Claridad total en cada etapa.
+            El foco no es sacar formularios baratos. Es construir una operación
+            que llegue a más presentaciones útiles y sostenga el seguimiento.
           </motion.p>
         </div>
 

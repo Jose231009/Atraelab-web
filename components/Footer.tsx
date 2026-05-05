@@ -28,8 +28,8 @@ function AtraeLabLogo() {
   );
 }
 
-function PartnerBadges() {
-  const partners = [
+function ChannelBadges() {
+  const channels = [
     {
       name: "Meta",
       icon: (
@@ -61,13 +61,13 @@ function PartnerBadges() {
 
   return (
     <div className="flex items-center gap-2.5 flex-wrap">
-      {partners.map((p) => (
+      {channels.map((p) => (
         <div
           key={p.name}
           className="flex items-center gap-1.5 bg-white/5 border border-white/8 rounded-full px-2.5 py-1.5"
         >
           {p.icon}
-          <span className="text-[#a1a1aa] text-[10px] font-medium">{p.name} Partner</span>
+          <span className="text-[#a1a1aa] text-[10px] font-medium">{p.name} Ads</span>
         </div>
       ))}
     </div>
@@ -106,11 +106,12 @@ const socialLinks = [
 
 const navLinks = [
   { label: "Inicio", href: "#home" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Problemas", href: "#network" },
+  { label: "Sistema", href: "#servicios" },
   { label: "CRM", href: "#crm" },
   { label: "Proceso", href: "#proceso" },
   { label: "Resultados", href: "#resultados" },
-  { label: "Blog", href: "/blog" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
 // Latest 3 blog posts
@@ -154,7 +155,8 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <AtraeLabLogo />
             <p className="mt-4 text-[#a1a1aa] text-sm leading-relaxed max-w-xs">
-              Agencia de performance marketing especializada en escalar negocios con Meta Ads, Google Ads y TikTok Ads.
+              Sistema de captación y seguimiento para equipos de network
+              marketing que necesitan más prospectos y mejor orden comercial.
             </p>
             <div className="flex items-center gap-3 mt-5">
               {socialLinks.map((s) => (
@@ -247,14 +249,14 @@ export default function Footer() {
           {/* CTA + Partners */}
           <div>
             <p className="text-white font-bold text-sm uppercase tracking-wider mb-4">¿Hablamos?</p>
-            <p className="text-[#a1a1aa] text-sm mb-4">Reservá tu auditoría gratuita y empezá a escalar.</p>
+            <p className="text-[#a1a1aa] text-sm mb-4">Revisamos tu operación y te mostramos qué destrabar primero.</p>
             <motion.button
               onClick={() => handleNavClick("#contacto")}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="bg-[#c8f000] text-black font-black text-xs uppercase tracking-wide px-5 py-3 rounded-full btn-neon"
             >
-              Auditoría Gratuita →
+              Diagnóstico inicial →
             </motion.button>
 
             <div className="mt-6">
@@ -266,8 +268,8 @@ export default function Footer() {
               >
                 LeadShield CRM <span className="text-[#c8f000]">↗</span>
               </a>
-              <p className="text-[#a1a1aa] text-xs uppercase tracking-widest mb-3">Partners Certificados</p>
-              <PartnerBadges />
+              <p className="text-[#a1a1aa] text-xs uppercase tracking-widest mb-3">Canales operados</p>
+              <ChannelBadges />
             </div>
           </div>
         </div>

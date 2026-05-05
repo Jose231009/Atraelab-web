@@ -224,9 +224,9 @@ export default function CRMSection() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase leading-tight tracking-tight"
             >
-              Ningún lead
+              Ningún prospecto
               <br />
-              <span className="gradient-text">se pierde</span>
+              <span className="text-[#c8f000]">se pierde</span>
             </motion.h2>
 
             <motion.p
@@ -235,7 +235,9 @@ export default function CRMSection() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-5 text-[#a1a1aa] text-base leading-relaxed"
             >
-              LeadShield es nuestro CRM propio, diseñado específicamente para equipos de ventas que viven de la pauta digital. Cada lead, bien organizado, desde el primer clic hasta el cierre.
+              LeadShield ordena el reclutamiento para equipos que dependen de
+              la velocidad de respuesta. Cada prospecto entra con origen,
+              responsable, estado y siguiente paso.
             </motion.p>
 
             <ul className="mt-7 space-y-3">
@@ -268,7 +270,7 @@ export default function CRMSection() {
                 className="inline-flex items-center justify-center gap-2 bg-[#c8f000] text-black font-black text-sm uppercase tracking-wide px-7 py-3.5 rounded-full btn-neon"
               >
                 <ExternalLink size={15} />
-                Ver demo del CRM
+                Ver LeadShield CRM
               </motion.a>
 
               <a

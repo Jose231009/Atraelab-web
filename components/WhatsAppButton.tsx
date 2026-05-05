@@ -3,10 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-// ── Change this to your real WhatsApp number ──────────────
-const WHATSAPP_NUMBER = "NUMERO_PLACEHOLDER";
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "NUMERO_PLACEHOLDER";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hola! Vi la web de AtraeLab y quiero saber más sobre sus servicios de pauta digital 🚀"
+  "Hola, vi la web de AtraeLab y quiero mejorar la captación de prospectos para mi red."
 );
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
@@ -30,8 +29,12 @@ function WhatsAppIcon() {
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const isValidNumber = /^\d{8,}$/.test(WHATSAPP_NUMBER);
 
-  // Appear after 3 seconds
+  if (!isValidNumber) {
+    return null;
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
@@ -46,9 +49,8 @@ export default function WhatsAppButton() {
           exit={{ opacity: 0, scale: 0.5 }}
           transition={{ type: "spring", damping: 15, stiffness: 200 }}
           className="fixed z-50"
-          style={{ bottom: "24px", right: "90px" }}
+          style={{ bottom: "24px", right: "24px" }}
         >
-          {/* Tooltip */}
           <AnimatePresence>
             {hovered && (
               <motion.div
@@ -63,8 +65,7 @@ export default function WhatsAppButton() {
                   color: "white",
                 }}
               >
-                ¡Chateá con nosotros!
-                {/* Arrow */}
+                Hablar por WhatsApp
                 <span
                   className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-0 h-0"
                   style={{
@@ -77,7 +78,6 @@ export default function WhatsAppButton() {
             )}
           </AnimatePresence>
 
-          {/* Pulse ring */}
           <div className="absolute inset-0 rounded-full pointer-events-none">
             <motion.div
               className="absolute inset-0 rounded-full"
@@ -87,7 +87,6 @@ export default function WhatsAppButton() {
             />
           </div>
 
-          {/* Button */}
           <motion.a
             href={WHATSAPP_URL}
             target="_blank"
@@ -104,7 +103,7 @@ export default function WhatsAppButton() {
               boxShadow: "0 4px 24px rgba(37,211,102,0.4)",
               willChange: "transform",
             }}
-            aria-label="Chatear por WhatsApp"
+            aria-label="Hablar por WhatsApp"
           >
             <WhatsAppIcon />
           </motion.a>

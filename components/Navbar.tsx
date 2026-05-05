@@ -6,9 +6,10 @@ import { X, Menu } from "lucide-react";
 
 const navLinks = [
   { label: "Inicio", href: "#home" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Network", href: "#network" },
+  { label: "Problemas", href: "#network" },
+  { label: "Sistema", href: "#servicios" },
   { label: "CRM", href: "#crm" },
+  { label: "Proceso", href: "#proceso" },
   { label: "Resultados", href: "#resultados" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -110,7 +111,7 @@ export default function Navbar() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-50"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-black"></span>
                 </span>
-                ¡Reservá tu Auditoría!
+                Agendá diagnóstico
               </motion.button>
 
               {/* Hamburger */}
@@ -206,7 +207,7 @@ export default function Navbar() {
                   onClick={() => handleNavClick("#contacto")}
                   className="w-full bg-[#c8f000] text-black font-black text-sm py-3.5 rounded-full btn-neon uppercase tracking-wide"
                 >
-                  ¡Reservá tu Auditoría Gratuita!
+                  Agendá diagnóstico
                 </motion.button>
               </div>
             </motion.div>

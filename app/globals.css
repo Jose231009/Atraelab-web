@@ -110,25 +110,20 @@ body {
   border-radius: 16px;
 }
 
-/* Lime gradient text */
+/* Accent text helper kept for legacy sections */
 .gradient-text {
-  background: linear-gradient(135deg, #c8f000 0%, #a8d400 50%, #c8f000 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease-in-out infinite;
+  color: #c8f000;
 }
 
-/* Neon button glow */
+/* Button treatment */
 .btn-neon {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  box-shadow: 0 0 20px rgba(200, 240, 0, 0.25);
+  box-shadow: 0 8px 24px rgba(200, 240, 0, 0.14);
 }
 .btn-neon:hover {
-  box-shadow: 0 0 50px rgba(200, 240, 0, 0.5), 0 0 100px rgba(200, 240, 0, 0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(200, 240, 0, 0.18);
+  transform: translateY(-1px);
 }
 
 /* Float animation */
@@ -152,31 +147,6 @@ body {
   );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
-}
-
-/* Section fade in on scroll */
-.section-enter {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.section-enter.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Custom cursor dot */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-lime);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
 }
 
 /* Badge animation */

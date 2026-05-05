@@ -4,15 +4,21 @@ import { Resend } from "resend";
 export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
-    const { name, email, whatsapp, message } = await request.json();
+    const { name, business, email, whatsapp, teamSize, message } = await request.json();
 
-    if (!name || !email || !whatsapp || !message) {
+    if (!name || !business || !email || !whatsapp || !teamSize || !message) {
       return NextResponse.json({ error: "Todos los campos son requeridos" }, { status: 400 });
     }
 
-    // If no API key configured, still return success (form UI demo)
     if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === "re_placeholder") {
-      console.log("Contact form submission (no RESEND_API_KEY configured):", { name, email, whatsapp, message });
+      console.log("Contact form submission (no RESEND_API_KEY configured):", {
+        name,
+        business,
+        email,
+        whatsapp,
+        teamSize,
+        message,
+      });
       return NextResponse.json({ success: true, message: "Mensaje registrado (modo demo)" });
     }
 
@@ -42,13 +48,18 @@ export async function POST(request: NextRequest) {
             <div class="logo">atrae<span>Lab</span></div>
             <div class="tagline">Encendé tu Demanda</div>
             <div style="margin-top:16px">
-              <span class="badge"><span class="dot"></span>Nuevo lead de auditoría</span>
+              <span class="badge"><span class="dot"></span>Nuevo lead de network marketing</span>
             </div>
           </div>
 
           <div class="card">
             <div class="label">Nombre</div>
             <div class="value">${name}</div>
+          </div>
+
+          <div class="card">
+            <div class="label">Red o negocio</div>
+            <div class="value">${business}</div>
           </div>
 
           <div class="card">
@@ -59,6 +70,11 @@ export async function POST(request: NextRequest) {
           <div class="card">
             <div class="label">WhatsApp</div>
             <div class="value"><a href="https://wa.me/${whatsapp.replace(/\D/g, '')}" style="color:#c8f000">${whatsapp}</a></div>
+          </div>
+
+          <div class="card">
+            <div class="label">Etapa actual</div>
+            <div class="value">${teamSize}</div>
           </div>
 
           <div class="card">
@@ -78,7 +94,7 @@ export async function POST(request: NextRequest) {
       from: "AtraeLab <noreply@atraelab.com>",
       to: [process.env.CONTACT_EMAIL || "hola@atraelab.com"],
       replyTo: email,
-      subject: `🚀 Nuevo lead: ${name} — Auditoría AtraeLab`,
+      subject: `Nuevo lead: ${name} — Network Marketing`,
       html: emailHtml,
     });
 
@@ -114,8 +130,8 @@ export async function POST(request: NextRequest) {
               <div class="logo">atrae<span>Lab</span></div>
             </div>
             <h2>¡Hola ${name}!</h2>
-            <p>Recibimos tu solicitud de auditoría gratuita. Un especialista de nuestro equipo se va a poner en contacto con vos en las próximas 24 horas hábiles.</p>
-            <p>Mientras tanto, podés explorar nuestro CRM LeadShield para ver cómo organizamos tus futuros leads.</p>
+            <p>Recibimos tu solicitud y vamos a revisar tu operación para entender dónde conviene ajustar primero: captación, filtro, seguimiento o cierre.</p>
+            <p>Un especialista de nuestro equipo se va a poner en contacto con vos en las próximas 24 horas hábiles.</p>
             <a href="https://leads.atraelab.com" class="btn">Ver LeadShield CRM →</a>
             <p style="margin-top: 32px; font-size: 12px; color: #666">© ${new Date().getFullYear()} AtraeLab · atraelab.com</p>
           </div>
