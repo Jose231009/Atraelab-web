@@ -1,17 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import './v3.css';
 import { sendEmail } from '@/lib/send-email';
 
-function Avatar({ src, alt, initials }: { src: string; alt: string; initials: string }) {
+function Avatar({ src, alt, initials, className = 'tc-avatar', style }: { src: string; alt: string; initials: string; className?: string; style?: CSSProperties }) {
   const [failed, setFailed] = useState(false);
-  if (failed) return <div className="tcard-avatar">{initials}</div>;
+  if (failed) return <div className={className} style={style}>{initials}</div>;
   return (
     <img
-      className="tcard-avatar"
+      className={className}
       src={src}
       alt={alt}
+      style={style}
       onError={() => setFailed(true)}
     />
   );
@@ -55,6 +56,8 @@ export default function Home() {
         const x = ((e.clientX - r.left) / r.width - 0.5) * 2;
         const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
         card.style.transform = `translateY(-5px) perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
       };
       const leave = () => { card.style.transform = ''; };
       card.addEventListener('mousemove', move);
@@ -211,6 +214,7 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <section className="s-testimonials" id="testimonios">
         <div className="container">
+
           <div className="t-header">
             <div>
               <div className="s-label">Clientes reales</div>
@@ -221,165 +225,156 @@ export default function Home() {
               <div className="t-count-label">equipos activos hoy</div>
             </div>
           </div>
-          <div className="t-grid">
+
+          {/* FEATURED — Beatriz Vidal */}
+          <div className="t-featured reveal">
+            <div className="t-feat-inner">
+              <div>
+                <span className="t-feat-quote">&ldquo;</span>
+                <p className="t-feat-text">Antes sentía que se me había terminado la lista de contactos y tenía que salir a buscar prospectos sin rumbo. Ahora es completamente diferente: son los prospectos quienes me contactan directamente por WhatsApp, incluso desde diferentes lugares. Ha supuesto un antes y un después en mi negocio.</p>
+                <div className="t-feat-result">📈 De 0 a 8 prospectos en un solo día</div>
+              </div>
+              <div className="t-feat-side">
+                <div className="t-feat-avatar">BV</div>
+                <div className="t-feat-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <div className="t-feat-name">Beatriz Vidal</div>
+                <div className="t-feat-meta">Marketing Director<br />España</div>
+                <div className="t-feat-net">inCruises</div>
+              </div>
+            </div>
+          </div>
+
+          {/* GRID TOP — 3 columnas */}
+          <div className="t-grid-top">
 
             <div className="tcard reveal">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Llevo más de dos años trabajando de la mano de Jose y su equipo, siempre a
-                disposición y con iniciativa de mejorar. 100% recomendados. Todo mi equipo ya
-                cuenta con un sistema de adquisición de leads duplicable y funcional.
-              </p>
-              <div className="tcard-author">
+              <div className="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div className="tc-quote">&ldquo;</div>
+              <p className="tc-text">Llevo más de dos años con Jose y su equipo, siempre a disposición y con iniciativa. Todo mi equipo ya cuenta con un sistema de adquisición de leads duplicable y funcional.</p>
+              <div className="tc-author">
                 <Avatar
                   src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/d5565e6204db0f5be0dc7c26d656f5ffb438920cd9d6b1f6/556b14b1-a8de-41e0-a1c3-186517f8bb1f.jpg"
                   alt="Henry Orzan"
                   initials="HO"
                 />
                 <div>
-                  <div className="tcard-name">Henry Orzan</div>
-                  <div className="tcard-meta">Senior Marketing Director · España</div>
-                  <div className="tcard-network">inCruises</div>
+                  <div className="tc-name">Henry Orzan</div>
+                  <div className="tc-meta">Sr. Marketing Director · España</div>
+                  <div className="tc-net">inCruises</div>
                 </div>
               </div>
             </div>
 
             <div className="tcard reveal d1">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Muy buena experiencia, son rápidos y efectivos. Además hay un trato muy cercano
-                y son resolutivos e innovadores.
-              </p>
-              <div className="tcard-result">📈 Tener leads sin tener que buscarlos</div>
-              <div className="tcard-author">
-                <Avatar
-                  src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/73af6d78d22e1d814ca2e309a72374a60e66ff5651bb5fae/b405a04a-db84-4b9b-8a93-ca1500af40de.jpeg"
-                  alt="Lisseth"
-                  initials="L"
-                />
-                <div>
-                  <div className="tcard-name">Lisseth</div>
-                  <div className="tcard-meta">Líder · España</div>
-                  <div className="tcard-network">inCruises</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="tcard reveal d2">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Esta plataforma me permitió gestionar mejor mi equipo, automatizar tareas que
-                antes me quitaban mucho tiempo y mantener un seguimiento constante de mis
-                contactos. Gracias a eso, he podido desarrollar mi negocio en distintos países
-                con mayor confianza y profesionalismo.
-              </p>
-              <div className="tcard-author">
+              <div className="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div className="tc-quote">&ldquo;</div>
+              <p className="tc-text">Esta plataforma me permitió gestionar mejor mi equipo, automatizar tareas que antes me quitaban mucho tiempo y mantener seguimiento constante. He podido desarrollar mi negocio en distintos países.</p>
+              <div className="tc-author">
                 <Avatar
                   src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/765c68a0ab0e30ea0869337aaf18d262986b38bf801853d0/a19c822a-762c-4f1c-a3c6-54e13248323f.jpeg"
                   alt="Cristina Isacura"
                   initials="CI"
                 />
                 <div>
-                  <div className="tcard-name">Cristina Isacura</div>
-                  <div className="tcard-meta">National Director · España</div>
-                  <div className="tcard-network">inCruises</div>
+                  <div className="tc-name">Cristina Isacura</div>
+                  <div className="tc-meta">National Director · España</div>
+                  <div className="tc-net">inCruises</div>
                 </div>
               </div>
             </div>
 
+            <div className="tcard reveal d2">
+              <div className="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div className="tc-quote">&ldquo;</div>
+              <p className="tc-text">Muy buena experiencia, son rápidos y efectivos. Hay un trato muy cercano y son resolutivos e innovadores.</p>
+              <div className="tc-result">📈 Leads sin tener que buscarlos</div>
+              <div className="tc-author">
+                <Avatar
+                  src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/73af6d78d22e1d814ca2e309a72374a60e66ff5651bb5fae/b405a04a-db84-4b9b-8a93-ca1500af40de.jpeg"
+                  alt="Lisseth"
+                  initials="L"
+                />
+                <div>
+                  <div className="tc-name">Lisseth</div>
+                  <div className="tc-meta">Líder · España</div>
+                  <div className="tc-net">inCruises</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* GRID BOTTOM — 2 columnas */}
+          <div className="t-grid-bot">
+
             <div className="tcard reveal">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Excelente profesional, muy implicado en el trabajo de tracking y creación de
-                anuncios.
-              </p>
-              <div className="tcard-result">📈 10 leads por semana de forma constante</div>
-              <div className="tcard-author">
+              <div className="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div className="tc-quote">&ldquo;</div>
+              <p className="tc-text">Excelente profesional, muy implicado en el trabajo de tracking y creación de anuncios.</p>
+              <div className="tc-result">📈 10 leads por semana de forma constante</div>
+              <div className="tc-author">
                 <Avatar
                   src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/552484c203c8dcd95fbb43f5229db1fdd415c27b29d4b11f/5160b811-29eb-4a91-8b77-4e44f586b3fb.jpeg"
                   alt="Oscar Rubio"
                   initials="OR"
                 />
                 <div>
-                  <div className="tcard-name">Oscar Rubio</div>
-                  <div className="tcard-meta">National Director · España</div>
-                  <div className="tcard-network">inCruises</div>
+                  <div className="tc-name">Oscar Rubio</div>
+                  <div className="tc-meta">National Director · España</div>
+                  <div className="tc-net">inCruises</div>
                 </div>
               </div>
             </div>
 
             <div className="tcard reveal d1">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Antes sentía que se me había terminado la lista de contactos y tenía que salir a
-                buscar prospectos sin rumbo. Ahora es completamente diferente: son los prospectos
-                quienes me contactan directamente por WhatsApp, incluso desde diferentes lugares.
-                Ha supuesto un antes y un después en mi negocio.
-              </p>
-              <div className="tcard-result">📈 De 0 a 8 prospectos en un solo día</div>
-              <div className="tcard-author">
-                <div className="tcard-avatar">BV</div>
-                <div>
-                  <div className="tcard-name">Beatriz Vidal</div>
-                  <div className="tcard-meta">Marketing Director · España</div>
-                  <div className="tcard-network">inCruises</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="tcard reveal d2">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Tengo una muy buena experiencia ya que son personas muy comprometidas y eso hace
-                que todo sea más fácil.
-              </p>
-              <div className="tcard-result">📈 Llegué a mi primer rango en muy poco tiempo</div>
-              <div className="tcard-author">
-                <Avatar
-                  src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/4583827f6932ae1b5abf4ed99ed14f1e6971ca8011fc3cb1/be67f3ae-6f7a-4dac-8cbe-d35266c0974b.jpg"
-                  alt="Lina Hurtado"
-                  initials="LH"
-                />
-                <div>
-                  <div className="tcard-name">Lina Hurtado</div>
-                  <div className="tcard-meta">Distribuidora · inCruises</div>
-                  <div className="tcard-network">inCruises</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="tcard reveal">
-              <div className="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-              <div className="tcard-quote">&quot;</div>
-              <p className="tcard-text">
-                Muy agradecida con el equipo por el aporte invaluable, excelente organización de
-                mi tiempo gracias a esta potente herramienta. Excelente comunicación y resultados.
-              </p>
-              <div className="tcard-result">📈 Mi negocio ha crecido en diferentes países</div>
-              <div className="tcard-author">
+              <div className="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div className="tc-quote">&ldquo;</div>
+              <p className="tc-text">Muy agradecida con el equipo por el aporte invaluable, excelente organización de mi tiempo. Excelente comunicación y resultados.</p>
+              <div className="tc-result">📈 Mi negocio ha crecido en diferentes países</div>
+              <div className="tc-author">
                 <Avatar
                   src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/f86a5b50f60b55518820f0a90fb724320f44c464fc6f29e3/1270a078-0a50-4d22-8d3a-9201e812c608.jpg"
                   alt="Thaiana Ledezma"
                   initials="TL"
                 />
                 <div>
-                  <div className="tcard-name">Thaiana Ledezma</div>
-                  <div className="tcard-meta">Regional Director · España</div>
-                  <div className="tcard-network">inCruises</div>
+                  <div className="tc-name">Thaiana Ledezma</div>
+                  <div className="tc-meta">Regional Director · España</div>
+                  <div className="tc-net">inCruises</div>
                 </div>
               </div>
             </div>
 
           </div>
+
+          {/* Lina Hurtado — card ancha */}
+          <div style={{ marginTop: '14px' }}>
+            <div className="tcard reveal">
+              <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '24px', alignItems: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', minWidth: '100px' }}>
+                  <Avatar
+                    src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/4583827f6932ae1b5abf4ed99ed14f1e6971ca8011fc3cb1/be67f3ae-6f7a-4dac-8cbe-d35266c0974b.jpg"
+                    alt="Lina Hurtado"
+                    initials="LH"
+                    style={{ width: '52px', height: '52px', fontSize: '16px' }}
+                  />
+                  <div className="tc-name" style={{ textAlign: 'center' }}>Lina Hurtado</div>
+                  <div className="tc-meta" style={{ textAlign: 'center' }}>Distribuidora</div>
+                  <div className="tc-net">inCruises</div>
+                </div>
+                <div>
+                  <div className="tc-stars" style={{ marginBottom: '10px' }}><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                  <p className="tc-text" style={{ fontSize: '15px' }}>&ldquo;Tengo una muy buena experiencia ya que son personas muy comprometidas y eso hace que todo sea más fácil.&rdquo;</p>
+                  <div className="tc-result" style={{ marginTop: '14px', display: 'inline-flex' }}>📈 Llegué a mi primer rango en muy poco tiempo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <a className="btn-secondary" href="#contacto">Quiero resultados como estos →</a>
           </div>
+
         </div>
       </section>
 
