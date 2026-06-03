@@ -236,10 +236,12 @@ export default function Home() {
               </div>
               <div className="t-feat-side">
                 <div className="t-feat-avatar">BV</div>
-                <div className="t-feat-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                <div className="t-feat-name">Beatriz Vidal</div>
-                <div className="t-feat-meta">Marketing Director<br />España</div>
-                <div className="t-feat-net">inCruises</div>
+                <div className="t-feat-side-info">
+                  <div className="t-feat-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                  <div className="t-feat-name">Beatriz Vidal</div>
+                  <div className="t-feat-meta">Marketing Director · España</div>
+                  <div className="t-feat-net">inCruises</div>
+                </div>
               </div>
             </div>
           </div>
