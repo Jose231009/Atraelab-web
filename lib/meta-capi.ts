@@ -45,10 +45,10 @@ export interface MetaLeadEventData {
  * No lanza error si falta el token o si la llamada falla (no rompe el flujo principal).
  */
 export async function sendMetaLeadEvent(data: MetaLeadEventData): Promise<void> {
-  const token = process.env.META_ACCESS_TOKEN;
+  const token = process.env.FB_ACCESS_TOKEN ?? process.env.META_ACCESS_TOKEN;
 
   if (!token) {
-    console.warn("[Meta CAPI] META_ACCESS_TOKEN no configurado — evento omitido");
+    console.warn("[Meta CAPI] FB_ACCESS_TOKEN no configurado — evento omitido");
     return;
   }
 
