@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await resend.emails.send({
       from: "AtraeLab <noreply@atraelab.com>",
-      to: [process.env.CONTACT_EMAIL || "hola@atraelab.com"],
+      to: [process.env.CONTACT_EMAIL || "marketing@atraelab.com"],
       replyTo: email,
       subject: `Nuevo lead: ${name} — Network Marketing`,
       html: emailHtml,
