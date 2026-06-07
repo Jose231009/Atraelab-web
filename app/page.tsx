@@ -87,6 +87,7 @@ export default function Home() {
       whatsapp: (data.get('whatsapp') as string) || '',
       email: (data.get('email') as string) || '',
       teamSize: (data.get('teamSize') as string) || '',
+      budget: (data.get('budget') as string) || '',
       message: (data.get('message') as string) || '',
     });
     if (result.success) {
@@ -639,6 +640,16 @@ export default function Home() {
                   </select>
                 </div>
                 <div className="fg">
+                  <label className="flabel">Presupuesto mensual para publicidad</label>
+                  <select className="fs" name="budget" required defaultValue="">
+                    <option value="" disabled>Seleccioná un rango</option>
+                    <option value="menos_100">Menos de USD 100</option>
+                    <option value="100_300">USD 100 – 300</option>
+                    <option value="300_500">USD 300 – 500</option>
+                    <option value="mas_500">Más de USD 500</option>
+                  </select>
+                </div>
+                <div className="fg">
                   <label className="flabel">¿Qué querés mejorar? (opcional)</label>
                   <textarea className="fta" name="message" placeholder="Contanos brevemente tu situación actual..." />
                 </div>
@@ -699,9 +710,9 @@ export default function Home() {
             <div>
               <h4>Blog</h4>
               <ul>
-                <li><a href="/blog/como-triplicar-roas-meta-ads-90-dias">Triplicar ROAS en 90 días</a></li>
-                <li><a href="/blog/google-ads-vs-meta-ads-cual-usar">Google vs Meta Ads</a></li>
-                <li><a href="/blog/tiktok-ads-latam-guia-completa">TikTok Ads LATAM 2025</a></li>
+                <li><a href="/blog/como-conseguir-prospectos-network-marketing">Cómo conseguir 20 prospectos por semana sin perseguir a nadie</a></li>
+                <li><a href="/blog/leads-meta-frios-network-marketing">Por qué tus leads de Meta se enfrían antes de la presentación</a></li>
+                <li><a href="/blog/sistema-lideres-incruises-duplicar-red">El sistema que usan líderes de inCruises para duplicar su red</a></li>
                 <li><a href="/blog">Ver todos →</a></li>
               </ul>
             </div>

@@ -5,11 +5,21 @@ import { sendMetaLeadEvent } from "@/lib/meta-capi";
 export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
-    const { name, business, email, whatsapp, teamSize, message } = await request.json();
+    const { name, business, email, whatsapp, teamSize, budget, message } = await request.json();
 
     if (!name || !business || !email || !whatsapp || !teamSize) {
       return NextResponse.json({ error: "Todos los campos son requeridos" }, { status: 400 });
     }
+
+    const budgetLabels: Record<string, string> = {
+      menos_100: 'Menos de USD 100',
+      '100_300': 'USD 100 – 300',
+      '300_500': 'USD 300 – 500',
+      mas_500: 'Más de USD 500',
+    };
+    const budgetLabel = budgetLabels[budget] || budget || 'No especificado';
+    const budgetIsHigh = budget === '300_500' || budget === 'mas_500';
+    const budgetColor = budgetIsHigh ? '#34D399' : '#FBBF24';
 
     if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === "re_placeholder") {
       console.log("Contact form submission (no RESEND_API_KEY configured):", {
@@ -18,6 +28,7 @@ export async function POST(request: NextRequest) {
         email,
         whatsapp,
         teamSize,
+        budget,
         message,
       });
       return NextResponse.json({ success: true, message: "Mensaje registrado (modo demo)" });
@@ -76,6 +87,11 @@ export async function POST(request: NextRequest) {
           <div class="card">
             <div class="label">Etapa actual</div>
             <div class="value">${teamSize}</div>
+          </div>
+
+          <div class="card" style="border-color: ${budgetIsHigh ? 'rgba(52,211,153,0.35)' : 'rgba(251,191,36,0.35)'}">
+            <div class="label" style="color: ${budgetColor}">Presupuesto mensual</div>
+            <div class="value" style="color: ${budgetColor}; font-weight: 700">${budgetLabel}</div>
           </div>
 
           <div class="card">
@@ -152,6 +168,7 @@ export async function POST(request: NextRequest) {
       customData: {
         content_name: business,
         lead_stage: teamSize,
+        budget,
       },
     }).catch((e) => console.error("[Meta CAPI] fire-and-forget error:", e));
 
