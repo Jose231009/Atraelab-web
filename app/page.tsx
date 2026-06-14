@@ -124,34 +124,75 @@ export default function Home() {
           <div className="hero-radial" />
         </div>
         <div className="hero-inner">
-          <div className="hero-badge">
-            <div className="badge-dot" />
-            Sistema activo en 30+ redes de network marketing
-          </div>
-          <h1>Más <em>presentaciones.</em><br />Menos prospección<br />en frío.</h1>
-          <p className="hero-sub">
-            Pauta, funnel y CRM propio para líderes que necesitan prospectos calificados,
-            seguimiento rápido y orden en su operación.
-          </p>
-          <div className="hero-actions">
-            <a className="btn-primary" href="#contacto">Quiero más prospectos →</a>
-            <a className="btn-secondary" href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer">
-              Ver LeadShield CRM →
-            </a>
-          </div>
-          <div className="hero-channels">
-            <span className="ch-label">Canales que operamos</span>
-            <div className="ch-pill">
-              <img src="/logos/meta.svg" alt="Meta Ads" />
-              <span>Meta Ads</span>
+          <div className="hero-content">
+            <div className="hero-badge">
+              <div className="badge-dot" />
+              Sistema activo en 30+ redes de network marketing
             </div>
-            <div className="ch-pill">
-              <img src="/logos/google.svg" alt="Google Ads" />
-              <span>Google Ads</span>
+            <h1>Más <em>presentaciones.</em><br />Menos prospección<br />en frío.</h1>
+            <p className="hero-sub">
+              Pauta, funnel y CRM propio para líderes que necesitan prospectos calificados,
+              seguimiento rápido y orden en su operación.
+            </p>
+            <div className="hero-actions">
+              <a className="btn-primary" href="#contacto">Quiero más prospectos →</a>
+              <a className="btn-secondary" href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer">
+                Ver LeadShield CRM →
+              </a>
             </div>
-            <div className="ch-pill">
-              <img src="/logos/tiktok.svg" alt="TikTok Ads" />
-              <span>TikTok Ads</span>
+            <div className="hero-channels">
+              <span className="ch-label">Canales que operamos</span>
+              <div className="ch-pill">
+                <img src="/logos/meta.svg" alt="Meta Ads" />
+                <span>Meta Ads</span>
+              </div>
+              <div className="ch-pill">
+                <img src="/logos/google.svg" alt="Google Ads" />
+                <span>Google Ads</span>
+              </div>
+              <div className="ch-pill">
+                <img src="/logos/tiktok.svg" alt="TikTok Ads" />
+                <span>TikTok Ads</span>
+              </div>
+            </div>
+          </div>
+          {/* COLUMNA DERECHA: Mockup CRM flotante */}
+          <div className="hero-visual">
+            <div className="hero-crm-mock">
+              <div className="mock-header">
+                <span className="mock-title">LeadShield CRM</span>
+                <span className="mock-new-tag">● Nuevo lead</span>
+              </div>
+              <div className="mock-pipeline">
+                <div className="mock-col-head c1">Nuevo</div>
+                <div className="mock-col-head c2">Contactado</div>
+                <div className="mock-col-head c3">Demo</div>
+                <div className="mock-col-head c4">Cerrado</div>
+              </div>
+              <div className="mock-leads">
+                <div className="mock-lead b">Ana G.</div>
+                <div className="mock-lead y">Luis M.</div>
+                <div className="mock-lead p">Sara V.</div>
+                <div className="mock-lead g">Pedro R.</div>
+                <div className="mock-lead b">María L.</div>
+                <div className="mock-lead y">Juan P.</div>
+                <div className="mock-lead p">Carla D.</div>
+                <div className="mock-lead g">Diego F.</div>
+              </div>
+              <div className="mock-footer">
+                <div className="mock-stat">
+                  <div className="mock-stat-num">38</div>
+                  <div className="mock-stat-label">Leads activos</div>
+                </div>
+                <div className="mock-stat">
+                  <div className="mock-stat-num">&lt;5m</div>
+                  <div className="mock-stat-label">Resp. promedio</div>
+                </div>
+                <div className="mock-stat">
+                  <div className="mock-stat-num">92%</div>
+                  <div className="mock-stat-label">Contactados</div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="hero-stats reveal">
