@@ -3,6 +3,7 @@
 import { useState, useEffect, type CSSProperties } from 'react';
 import './v3.css';
 import { sendEmail } from '@/lib/send-email';
+import HeroCarousel from './components/HeroCarousel';
 
 function Avatar({ src, alt, initials, className = 'tc-avatar', style }: { src: string; alt: string; initials: string; className?: string; style?: CSSProperties }) {
   const [failed, setFailed] = useState(false);
@@ -23,7 +24,7 @@ export default function Home() {
 
   useEffect(() => {
     const nav = document.getElementById('nav');
-    const handleScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 40);
+    const handleScroll = () => nav?.classList.toggle('scrolled', window.scrollY > window.innerHeight * 0.85);
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     const io = new IntersectionObserver(
@@ -104,7 +105,7 @@ export default function Home() {
 
   return (
     <>
-      {/* NAV — TODO: agregar logo cuando esté disponible en el repo */}
+      {/* NAV — visible solo después de scroll past hero */}
       <nav id="nav">
         <a className="nav-logo" href="#home"><span>atrae</span>Lab</a>
         <ul className="nav-links">
@@ -117,59 +118,8 @@ export default function Home() {
         <a className="nav-cta" href="#contacto">Diagnóstico gratuito</a>
       </nav>
 
-      {/* HERO */}
-      <section className="hero" id="home">
-        <div className="hero-bg">
-          <div className="hero-grid" />
-          <div className="hero-radial" />
-        </div>
-        <div className="hero-inner">
-          <div className="hero-badge">
-            <div className="badge-dot" />
-            Sistema activo en 30+ redes de network marketing
-          </div>
-          <h1>Más <em>presentaciones.</em><br />Menos prospección<br />en frío.</h1>
-          <p className="hero-sub">
-            Pauta, funnel y CRM propio para líderes que necesitan prospectos calificados,
-            seguimiento rápido y orden en su operación.
-          </p>
-          <div className="hero-actions">
-            <a className="btn-primary" href="#contacto">Quiero más prospectos →</a>
-            <a className="btn-secondary" href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer">
-              Ver LeadShield CRM →
-            </a>
-          </div>
-          <div className="hero-channels">
-            <span className="ch-label">Canales que operamos</span>
-            <div className="ch-pill">
-              <img src="/logos/meta.svg" alt="Meta Ads" />
-              <span>Meta Ads</span>
-            </div>
-            <div className="ch-pill">
-              <img src="/logos/google.svg" alt="Google Ads" />
-              <span>Google Ads</span>
-            </div>
-            <div className="ch-pill">
-              <img src="/logos/tiktok.svg" alt="TikTok Ads" />
-              <span>TikTok Ads</span>
-            </div>
-          </div>
-          <div className="hero-stats reveal">
-            <div className="hstat">
-              <div className="hstat-num">&lt;5 min</div>
-              <div className="hstat-label">Velocidad objetivo de primer contacto</div>
-            </div>
-            <div className="hstat">
-              <div className="hstat-num">30+</div>
-              <div className="hstat-label">Equipos de network marketing activos</div>
-            </div>
-            <div className="hstat">
-              <div className="hstat-num">1 sistema</div>
-              <div className="hstat-label">Pauta + funnel + CRM + IA integrados</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* HERO v4 — Carrusel con slides CRM */}
+      <HeroCarousel goContacto={goContacto} />
 
       {/* PROBLEMS */}
       <section className="s-problems" id="problemas">
