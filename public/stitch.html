@@ -146,6 +146,32 @@
     input:focus, select:focus, textarea:focus {
       outline:none; border-color:#C8D84B !important;
     }
+
+    /* ── Mobile Responsive ── */
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 767px) {
+      .px-grid-margin { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      .py-section-gap { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      .text-display-xl { font-size: 42px !important; line-height: 1.05 !important; }
+      .text-display-lg { font-size: 30px !important; line-height: 1.15 !important; }
+      .marquee-content { animation-duration: 25s !important; }
+      .marquee-content .text-headline-sm { font-size: 16px !important; }
+    }
+
+    /* Contact section responsive grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
   </style>
 </head>
 <body class="selection:bg-primary selection:text-background">
@@ -161,8 +187,21 @@
     <a class="text-on-surface-variant font-label-bold hover:text-primary transition-colors" href="#pricing">Precios</a>
     <a class="text-on-surface-variant font-label-bold hover:text-primary transition-colors" href="#testimonials">Testimonios</a>
   </div>
-  <a href="#contacto" class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg active:scale-95 transition-transform hover:lime-glow">Hablar con Ventas</a>
+  <a href="#contacto" class="hidden md:inline-flex bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg active:scale-95 transition-transform hover:lime-glow">Hablar con Ventas</a>
+  <button id="menu-toggle" onclick="toggleMenu()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px]" aria-label="Menú">
+    <span id="bar1" class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span id="bar2" class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span id="bar3" class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+  </button>
 </nav>
+<!-- Mobile drawer -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col justify-center items-center gap-10 translate-x-full transition-transform duration-300 md:hidden">
+  <a href="#platform" onclick="toggleMenu()" class="text-2xl font-black uppercase tracking-tight text-white hover:text-primary transition-colors" style="font-family:'Bricolage Grotesque',sans-serif">El Sistema</a>
+  <a href="#process" onclick="toggleMenu()" class="text-2xl font-black uppercase tracking-tight text-white hover:text-primary transition-colors" style="font-family:'Bricolage Grotesque',sans-serif">Proceso</a>
+  <a href="#pricing" onclick="toggleMenu()" class="text-2xl font-black uppercase tracking-tight text-white hover:text-primary transition-colors" style="font-family:'Bricolage Grotesque',sans-serif">Precios</a>
+  <a href="#testimonials" onclick="toggleMenu()" class="text-2xl font-black uppercase tracking-tight text-white hover:text-primary transition-colors" style="font-family:'Bricolage Grotesque',sans-serif">Testimonios</a>
+  <a href="#contacto" onclick="toggleMenu()" class="mt-4 bg-primary text-on-primary font-label-bold px-10 py-4 rounded-lg text-lg" style="font-family:'DM Sans',sans-serif">Hablar con Ventas</a>
+</div>
 
 <!-- ── HERO ── -->
 <header id="home" class="relative pt-32 pb-section-gap px-grid-margin overflow-hidden min-h-screen flex items-center">
@@ -184,12 +223,12 @@
         Pauta, funnel y CRM propio para líderes que necesitan prospectos calificados, seguimiento rápido y orden en su operación.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 mb-12">
-        <a href="#contacto" class="bg-primary text-on-primary font-label-bold px-8 py-4 rounded-lg flex items-center justify-center gap-2 hover:lime-glow transition-all group">
+        <a href="#contacto" class="bg-primary text-on-primary font-label-bold px-8 py-4 rounded-lg flex items-center justify-center gap-2 hover:lime-glow transition-all group w-full sm:w-auto">
           Quiero más prospectos
           <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
         <a href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer"
-           class="border border-on-surface-variant/30 text-on-surface font-label-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-all text-center">
+           class="border border-on-surface-variant/30 text-on-surface font-label-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-all text-center w-full sm:w-auto">
           Ver LeadShield CRM →
         </a>
       </div>
@@ -210,8 +249,8 @@
       </div>
     </div>
 
-    <!-- Right col: CRM mockup -->
-    <div class="md:col-span-5 relative mt-20 md:mt-0">
+    <!-- Right col: CRM mockup (hidden on mobile) -->
+    <div class="hidden md:block md:col-span-5 relative mt-20 md:mt-0 px-10 lg:px-0">
       <div class="relative w-full rounded-xl overflow-visible border border-white/10 lime-glow" style="animation:float 5s ease-in-out infinite">
         <div class="mock-window">
           <div class="mock-header">
@@ -354,17 +393,17 @@
       </p>
     </div>
     <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group">
+      <div class="p-6 md:p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group">
         <span class="material-symbols-outlined text-primary text-[48px] mb-6 block group-hover:scale-110 transition-transform">ac_unit</span>
         <h3 class="font-headline-sm text-headline-sm mb-4">Leads Fríos</h3>
         <p class="text-on-surface-variant font-body-md">Eliminamos la fricción del primer contacto mediante calentamiento algorítmico y pauta segmentada.</p>
       </div>
-      <div class="p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group">
+      <div class="p-6 md:p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group">
         <span class="material-symbols-outlined text-primary text-[48px] mb-6 block group-hover:scale-110 transition-transform">schedule</span>
         <h3 class="font-headline-sm text-headline-sm mb-4">Seguimiento lento</h3>
         <p class="text-on-surface-variant font-body-md">Automatizamos el 90% del seguimiento para que solo hables con personas listas para firmar.</p>
       </div>
-      <div class="p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group md:col-span-2">
+      <div class="p-6 md:p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group col-span-1 md:col-span-2">
         <span class="material-symbols-outlined text-primary text-[48px] mb-6 block group-hover:scale-110 transition-transform">present_to_all</span>
         <h3 class="font-headline-sm text-headline-sm mb-4">Sin sistema escalable</h3>
         <p class="text-on-surface-variant font-body-md">Creamos ecosistemas de captación de alta conversión con pauta + funnel + CRM integrados que funcionan mientras duermes.</p>
@@ -380,7 +419,7 @@
       <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">Testimonios Reales</p>
       <h2 class="font-display-lg text-display-lg max-w-xl">El impacto de AtraeLab en números.</h2>
     </div>
-    <div class="flex gap-12 text-right">
+    <div class="grid grid-cols-3 gap-4 text-right">
       <div>
         <span class="text-display-xl font-display-xl text-primary">30+</span>
         <p class="font-label-bold text-on-surface-variant">EQUIPOS ACTIVOS</p>
@@ -389,7 +428,7 @@
         <span class="text-display-xl font-display-xl text-primary">&lt;5 min</span>
         <p class="font-label-bold text-on-surface-variant">VELOCIDAD AL LEAD</p>
       </div>
-      <div class="hidden sm:block">
+      <div>
         <span class="text-display-xl font-display-xl text-primary">1</span>
         <p class="font-label-bold text-on-surface-variant">SISTEMA ÚNICO</p>
       </div>
@@ -398,7 +437,7 @@
 
   <div class="px-grid-margin grid grid-cols-1 md:grid-cols-3 gap-6">
     <!-- Featured: Beatriz Vidal (sin foto → iniciales BV) -->
-    <div class="md:col-span-2 bg-secondary p-10 rounded-2xl border-l-4 border-primary relative flex flex-col md:flex-row gap-10">
+    <div class="md:col-span-2 bg-secondary p-6 md:p-10 rounded-2xl border-l-4 border-primary relative flex flex-col md:flex-row gap-6 md:gap-10">
       <div class="flex-1">
         <p class="text-body-lg font-body-lg italic mb-8">"Implementar el sistema de AtraeLab cambió por completo la dinámica de mi equipo. Dejamos de perseguir personas para convertirnos en un polo de atracción de líderes calificados."</p>
         <div class="flex items-center gap-4">
@@ -569,35 +608,35 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
     <div class="relative group">
-      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">1</span>
+      <span class="text-[64px] md:text-[120px] font-display-xl absolute -top-8 md:-top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">1</span>
       <div class="pt-12 relative z-10">
         <h4 class="font-headline-sm mb-4">Diagnóstico</h4>
         <p class="text-on-surface-variant text-sm">Analizamos tu operación actual y definimos qué necesita tu negocio para escalar.</p>
       </div>
     </div>
     <div class="relative group">
-      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">2</span>
+      <span class="text-[64px] md:text-[120px] font-display-xl absolute -top-8 md:-top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">2</span>
       <div class="pt-12 relative z-10">
         <h4 class="font-headline-sm mb-4">Funnel</h4>
         <p class="text-on-surface-variant text-sm">Construimos la landing de captación y el embudo de conversión para tu oferta.</p>
       </div>
     </div>
     <div class="relative group">
-      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">3</span>
+      <span class="text-[64px] md:text-[120px] font-display-xl absolute -top-8 md:-top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">3</span>
       <div class="pt-12 relative z-10">
         <h4 class="font-headline-sm mb-4">Lanzamiento</h4>
         <p class="text-on-surface-variant text-sm">Encendemos las campañas de Meta, Google o TikTok con la segmentación correcta.</p>
       </div>
     </div>
     <div class="relative group">
-      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">4</span>
+      <span class="text-[64px] md:text-[120px] font-display-xl absolute -top-8 md:-top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">4</span>
       <div class="pt-12 relative z-10">
         <h4 class="font-headline-sm mb-4">CRM + IA</h4>
         <p class="text-on-surface-variant text-sm">Activamos LeadShield con agentes de IA para seguimiento automático en menos de 5 minutos.</p>
       </div>
     </div>
     <div class="relative group">
-      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">5</span>
+      <span class="text-[64px] md:text-[120px] font-display-xl absolute -top-8 md:-top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">5</span>
       <div class="pt-12 relative z-10">
         <h4 class="font-headline-sm mb-4">Escala</h4>
         <p class="text-on-surface-variant text-sm">Optimizamos con reportes semanales y check-ins para duplicar resultados cada trimestre.</p>
@@ -615,7 +654,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
     <!-- Plan 1: CRM Solo -->
-    <div class="p-10 bg-secondary/30 border border-white/5 rounded-2xl flex flex-col">
+    <div class="p-6 md:p-10 bg-secondary/30 border border-white/5 rounded-2xl flex flex-col">
       <h4 class="font-headline-sm mb-2">CRM Solo</h4>
       <div class="flex items-baseline gap-2 mb-1">
         <span class="text-display-lg font-display-lg">$147</span>
@@ -648,7 +687,7 @@
     </div>
 
     <!-- Plan 2: Sistema Completo (FEATURED) -->
-    <div class="p-10 bg-primary/5 border-2 border-primary rounded-2xl flex flex-col relative lime-glow transform scale-105 z-10">
+    <div class="p-6 md:p-10 bg-primary/5 border-2 border-primary rounded-2xl flex flex-col relative lime-glow md:scale-105 z-10">
       <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] font-black uppercase px-4 py-1 rounded-full whitespace-nowrap">Más popular</div>
       <h4 class="font-headline-sm mb-2">Sistema Completo</h4>
       <div class="flex items-baseline gap-2 mb-1">
@@ -682,7 +721,7 @@
     </div>
 
     <!-- Plan 3: Escala -->
-    <div class="p-10 bg-secondary/30 border border-white/5 rounded-2xl flex flex-col">
+    <div class="p-6 md:p-10 bg-secondary/30 border border-white/5 rounded-2xl flex flex-col">
       <h4 class="font-headline-sm mb-2">Escala</h4>
       <div class="flex items-baseline gap-2 mb-1">
         <span class="text-display-lg font-display-lg">$1,200</span>
@@ -720,7 +759,7 @@
 <!-- ── CONTACT FORM ── -->
 <section id="contacto" style="background:#0A1520;padding:108px 5%">
   <div style="max-width:1200px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div class="contact-grid">
 
       <!-- Izquierda -->
       <div>
@@ -811,8 +850,8 @@
 
 <!-- ── FOOTER ── -->
 <footer class="bg-surface-container-lowest border-t border-secondary/10 w-full py-section-gap">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-grid-gutter px-grid-margin w-full">
-    <div class="flex flex-col gap-6">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-grid-gutter px-5 md:px-grid-margin w-full">
+    <div class="flex flex-col gap-6 col-span-2 md:col-span-1">
       <a href="#home" class="flex items-center gap-1">
         <span class="text-headline-md font-headline-md font-black text-white uppercase tracking-tighter">atrae</span><span class="text-headline-md font-headline-md font-black text-primary uppercase tracking-tighter">Lab</span>
       </a>
@@ -865,14 +904,39 @@
 
 <!-- ── SCRIPTS ── -->
 <script>
+// Mobile menu toggle
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  const isOpen = menu.classList.contains('translate-x-0');
+  if (isOpen) {
+    menu.classList.remove('translate-x-0');
+    menu.classList.add('translate-x-full');
+    if (bar1) bar1.style.transform = '';
+    if (bar2) bar2.style.opacity = '1';
+    if (bar3) bar3.style.transform = '';
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.remove('translate-x-full');
+    menu.classList.add('translate-x-0');
+    if (bar1) bar1.style.transform = 'rotate(45deg) translate(3px, 6px)';
+    if (bar2) bar2.style.opacity = '0';
+    if (bar3) bar3.style.transform = 'rotate(-45deg) translate(3px, -6px)';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 // Nav scroll effect
 document.addEventListener('scroll', () => {
   const nav = document.getElementById('nav');
   if (!nav) return;
+  const px = window.innerWidth < 768 ? '1.25rem' : '4rem';
   if (window.scrollY > 50) {
-    nav.style.padding = '12px 4rem';
+    nav.style.padding = `12px ${px}`;
   } else {
-    nav.style.padding = '16px 4rem';
+    nav.style.padding = `16px ${px}`;
   }
 });
 
