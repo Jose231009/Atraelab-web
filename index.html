@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AtraeLab | Más presentaciones. Menos prospección en frío.</title>
+  <meta name="description" content="Pauta, funnel y CRM para líderes de network marketing que necesitan más prospectos calificados, seguimiento rápido y orden en su operación."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1661949861742181');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1661949861742181&ev=PageView&noscript=1"/></noscript>
+
+  <script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background":              "#0A1520",
+          "on-background":           "#e4e3d4",
+          "primary":                 "#C8D84B",
+          "on-primary":              "#0A1520",
+          "secondary":               "#1A2740",
+          "on-secondary":            "#253144",
+          "secondary-fixed":         "#d7e3fc",
+          "surface-container-low":   "#0F1B2D",
+          "surface-container-lowest":"#0e0f07",
+          "surface-container-high":  "#2a2b21",
+          "on-surface":              "#e4e3d4",
+          "on-surface-variant":      "#c8c8b0",
+          "outline-variant":         "#474836",
+        },
+        spacing: {
+          "grid-gutter":  "1.5rem",
+          "grid-margin":  "4rem",
+          "section-gap":  "8rem",
+        },
+        fontFamily: {
+          "body-md":      ["DM Sans"],
+          "display-xl":   ["Bricolage Grotesque"],
+          "label-bold":   ["DM Sans"],
+          "headline-sm":  ["Bricolage Grotesque"],
+          "body-lg":      ["DM Sans"],
+          "display-lg":   ["Bricolage Grotesque"],
+          "headline-md":  ["Bricolage Grotesque"],
+        },
+        fontSize: {
+          "body-md":     ["16px", {lineHeight:"1.6",  fontWeight:"400"}],
+          "display-xl":  ["72px", {lineHeight:"1.0",  letterSpacing:"-0.04em", fontWeight:"800"}],
+          "label-bold":  ["14px", {lineHeight:"1.0",  letterSpacing:"0.05em",  fontWeight:"700"}],
+          "headline-sm": ["24px", {lineHeight:"1.3",  letterSpacing:"-0.01em", fontWeight:"700"}],
+          "body-lg":     ["18px", {lineHeight:"1.6",  fontWeight:"400"}],
+          "display-lg":  ["48px", {lineHeight:"1.1",  letterSpacing:"-0.03em", fontWeight:"800"}],
+          "headline-md": ["32px", {lineHeight:"1.2",  letterSpacing:"-0.02em", fontWeight:"800"}],
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg":      "0.25rem",
+          "xl":      "0.5rem",
+          "full":    "0.75rem",
+        }
+      }
+    }
+  }
+  </script>
+
+  <style>
+    @keyframes scrollMarquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-container { display:flex; white-space:nowrap; overflow:hidden; }
+    .marquee-content   { display:flex; animation:scrollMarquee 40s linear infinite; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-10px); }
+    }
+    @keyframes pulse-text {
+      0%,100% { opacity:1; }
+      50%     { opacity:0.5; }
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; }
+      50%     { opacity:0.4; }
+    }
+
+    .grid-line-v { position:absolute; top:0; bottom:0; width:1px; background-color:rgba(26,39,64,0.4); }
+    .lime-glow   { box-shadow:0 0 40px 0 rgba(200,216,75,0.15); }
+    .hover-lift  { transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .hover-lift:hover { transform:translateY(-8px); }
+
+    body { background-color:#0A1520; color:#e4e3d4; font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+
+    /* CRM Mockup */
+    .mock-window {
+      background:#0F1B2D; border:1px solid rgba(255,255,255,0.1);
+      border-radius:12px; width:100%; box-shadow:0 20px 50px rgba(0,0,0,0.5);
+      overflow:hidden; font-family:sans-serif;
+    }
+    .mock-header {
+      background:rgba(255,255,255,0.05); padding:10px 14px;
+      display:flex; align-items:center; gap:10px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .mock-dots { display:flex; gap:5px; }
+    .mock-dots span { width:10px; height:10px; border-radius:50%; display:block; }
+    .mock-title { font-size:11px; font-weight:600; color:#7A8FA8; flex:1; }
+    .mock-live  { font-size:11px; color:#C8D84B; font-weight:bold; animation:pulse-text 2s infinite; }
+    .mock-pipeline {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:8px; padding:12px; min-height:240px;
+    }
+    .mock-col-label {
+      font-size:9px; font-weight:800; text-transform:uppercase; color:white;
+      padding-bottom:6px; border-bottom:2px solid; margin-bottom:8px; letter-spacing:.06em;
+    }
+    .mock-card {
+      background:rgba(255,255,255,0.03); border-left:3px solid;
+      padding:6px 8px; border-radius:4px; margin-bottom:6px;
+    }
+    .mock-card-name { font-size:10px; font-weight:600; color:white; margin-bottom:2px; }
+    .mock-card-meta { font-size:9px; color:rgba(255,255,255,0.4); }
+    .mock-footer {
+      padding:10px 14px; background:rgba(0,0,0,0.2);
+      display:flex; align-items:center; gap:16px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+    .mock-stat     { display:flex; flex-direction:column; }
+    .mock-stat-num { font-size:16px; font-weight:800; color:#C8D84B; line-height:1; }
+    .mock-stat-lbl { font-size:9px; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-top:2px; }
+
+    /* Input focus */
+    input:focus, select:focus, textarea:focus {
+      outline:none; border-color:#C8D84B !important;
+    }
+  </style>
+</head>
+<body class="selection:bg-primary selection:text-background">
+
+<!-- ── NAV ── -->
+<nav id="nav" class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-secondary/10 flex justify-between items-center px-grid-margin py-4 transition-all">
+  <a href="#home" class="flex items-center gap-1">
+    <span class="text-headline-sm font-headline-sm font-black text-white uppercase tracking-tighter">atrae</span><span class="text-headline-sm font-headline-sm font-black text-primary uppercase tracking-tighter">Lab</span>
+  </a>
+  <div class="hidden md:flex gap-8 items-center">
+    <a class="text-on-surface-variant font-label-bold hover:text-primary transition-colors" href="#platform">El Sistema</a>
+    <a class="text-on-surface-variant font-label-bold hover:text-primary transition-colors" href="#process">Proceso</a>
+    <a class="text-on-surface-variant font-label-bold hover:text-primary transition-colors" href="#pricing">Precios</a>
+    <a class="text-on-surface-variant font-label-bold hover:text-primary transition-colors" href="#testimonials">Testimonios</a>
+  </div>
+  <a href="#contacto" class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg active:scale-95 transition-transform hover:lime-glow">Hablar con Ventas</a>
+</nav>
+
+<!-- ── HERO ── -->
+<header id="home" class="relative pt-32 pb-section-gap px-grid-margin overflow-hidden min-h-screen flex items-center">
+  <div class="grid-line-v left-12"></div>
+  <div class="grid-line-v right-1/2 opacity-20"></div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter w-full items-center relative z-10">
+
+    <!-- Left col -->
+    <div class="md:col-span-7">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-8 font-label-bold">
+        <span class="material-symbols-outlined text-[14px]">bolt</span>
+        Sistema activo en 30+ redes de network marketing
+      </div>
+      <h1 class="font-display-xl text-display-xl mb-6 max-w-2xl leading-[0.9]">
+        Más presentaciones.<br/>Menos <span class="text-primary italic">prospección</span> en frío.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+        Pauta, funnel y CRM propio para líderes que necesitan prospectos calificados, seguimiento rápido y orden en su operación.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 mb-12">
+        <a href="#contacto" class="bg-primary text-on-primary font-label-bold px-8 py-4 rounded-lg flex items-center justify-center gap-2 hover:lime-glow transition-all group">
+          Quiero más prospectos
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+        <a href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer"
+           class="border border-on-surface-variant/30 text-on-surface font-label-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-all text-center">
+          Ver LeadShield CRM →
+        </a>
+      </div>
+      <!-- Channel pills -->
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-1.5 rounded-full bg-secondary/30 text-secondary-fixed text-[12px] font-label-bold uppercase border border-white/5 flex items-center gap-2">
+          <img src="/logos/meta.svg" alt="Meta" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0"/>
+          Meta Ads
+        </span>
+        <span class="px-4 py-1.5 rounded-full bg-secondary/30 text-secondary-fixed text-[12px] font-label-bold uppercase border border-white/5 flex items-center gap-2">
+          <img src="/logos/google.svg" alt="Google Ads" style="width:20px;height:20px;object-fit:contain;flex-shrink:0;background:transparent"/>
+          Google Ads
+        </span>
+        <span class="px-4 py-1.5 rounded-full bg-secondary/30 text-secondary-fixed text-[12px] font-label-bold uppercase border border-white/5 flex items-center gap-2">
+          <img src="/logos/tiktok.svg" alt="TikTok" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0"/>
+          TikTok Ads
+        </span>
+      </div>
+    </div>
+
+    <!-- Right col: CRM mockup -->
+    <div class="md:col-span-5 relative mt-20 md:mt-0">
+      <div class="relative w-full rounded-xl overflow-visible border border-white/10 lime-glow" style="animation:float 5s ease-in-out infinite">
+        <div class="mock-window">
+          <div class="mock-header">
+            <div class="mock-dots">
+              <span style="background:#EF4444"></span>
+              <span style="background:#F59E0B"></span>
+              <span style="background:#22C55E"></span>
+            </div>
+            <span class="mock-title">LeadShield CRM · Pipeline</span>
+            <span class="mock-live">● 28 leads hoy</span>
+          </div>
+          <div class="mock-pipeline">
+            <div>
+              <div class="mock-col-label" style="border-color:#3B82F6">Nuevo · 8</div>
+              <div class="mock-card" style="border-color:#3B82F6">
+                <div class="mock-card-name">Lucía F.</div>
+                <div class="mock-card-meta">Meta · 4 min</div>
+              </div>
+              <div class="mock-card" style="border-color:#3B82F6">
+                <div class="mock-card-name">Marcos P.</div>
+                <div class="mock-card-meta">Meta · 12 min</div>
+              </div>
+              <div class="mock-card" style="border-color:#3B82F6">
+                <div class="mock-card-name">Valentina R.</div>
+                <div class="mock-card-meta">TikTok · 1h</div>
+              </div>
+            </div>
+            <div>
+              <div class="mock-col-label" style="border-color:#C8D84B">Contactado · 11</div>
+              <div class="mock-card" style="border-color:#C8D84B">
+                <div class="mock-card-name">Ana G.</div>
+                <div class="mock-card-meta">TikTok · Ayer</div>
+              </div>
+              <div class="mock-card" style="border-color:#C8D84B">
+                <div class="mock-card-name">Carlos R.</div>
+                <div class="mock-card-meta">Meta · Ayer</div>
+              </div>
+            </div>
+            <div>
+              <div class="mock-col-label" style="border-color:#A78BFA">Presentación · 7</div>
+              <div class="mock-card" style="border-color:#A78BFA">
+                <div class="mock-card-name">Diego M.</div>
+                <div class="mock-card-meta">Google · 3d</div>
+              </div>
+              <div class="mock-card" style="border-color:#A78BFA">
+                <div class="mock-card-name">Sofía L.</div>
+                <div class="mock-card-meta">Meta · 4d</div>
+              </div>
+            </div>
+            <div>
+              <div class="mock-col-label" style="border-color:#34D399">Cierre · 3</div>
+              <div class="mock-card" style="border-color:#34D399">
+                <div class="mock-card-name">Juan T.</div>
+                <div class="mock-card-meta">Meta · ✓</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-footer">
+            <div class="mock-stat">
+              <span class="mock-stat-num">161</span>
+              <span class="mock-stat-lbl">leads este mes</span>
+            </div>
+            <div class="mock-stat">
+              <span class="mock-stat-num">4.2<span style="font-size:10px;margin-left:2px">min</span></span>
+              <span class="mock-stat-lbl">velocidad promedio</span>
+            </div>
+            <span class="mock-live" style="margin-left:auto">● Nuevo lead</span>
+          </div>
+        </div>
+        <!-- Floating notification card -->
+        <div class="absolute -top-10 -left-10 bg-secondary p-4 rounded-xl border border-primary/20 hover-lift z-20 shadow-2xl">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">person_add</span>
+            </div>
+            <div>
+              <p class="text-white font-label-bold">Nuevo lead</p>
+              <p class="text-primary text-[12px]">Hace 2 min</p>
+            </div>
+          </div>
+        </div>
+        <!-- Stats card -->
+        <div class="absolute -bottom-8 -right-10 bg-background/90 backdrop-blur-xl p-5 rounded-xl border border-white/10 hover-lift z-20 shadow-2xl">
+          <p class="text-on-surface-variant font-label-bold text-[12px] mb-1">TRÁFICO HOY</p>
+          <h4 class="text-display-lg font-display-lg text-primary text-[32px]">28 leads</h4>
+          <div class="flex items-center gap-2 text-green-400 text-[12px] font-bold">
+            <span class="material-symbols-outlined text-[14px]">trending_up</span>
+            +12% vs ayer
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ── MARQUEE / TICKER ── -->
+<div class="py-12 border-y border-secondary/20 bg-surface-container-lowest overflow-hidden">
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <div class="flex items-center gap-12 px-6">
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">META ADS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">LEADSHIELD CRM <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">NETWORK MARKETING <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">AGENTES DE IA <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">GOOGLE ADS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">TIKTOK ADS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">SEGUIMIENTO AUTOMÁTICO <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">LEADS CALIFICADOS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">INCRUISES <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">EMBUDO DE CAPTACIÓN <span class="text-primary">✦</span></span>
+      </div>
+      <!-- Repeat for seamless loop -->
+      <div class="flex items-center gap-12 px-6">
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">META ADS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">LEADSHIELD CRM <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">NETWORK MARKETING <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">AGENTES DE IA <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">GOOGLE ADS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">TIKTOK ADS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">SEGUIMIENTO AUTOMÁTICO <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">LEADS CALIFICADOS <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">INCRUISES <span class="text-primary">✦</span></span>
+        <span class="text-headline-sm font-headline-sm uppercase text-on-surface-variant flex items-center gap-4">EMBUDO DE CAPTACIÓN <span class="text-primary">✦</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROBLEMS ── -->
+<section class="py-section-gap px-grid-margin relative" id="platform">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-grid-gutter">
+    <div class="lg:col-span-5">
+      <h2 class="font-display-lg text-display-lg mb-8 leading-tight">
+        El problema no es tu equipo. <span class="text-primary">Es el método.</span>
+      </h2>
+      <div class="w-24 h-1 bg-primary mb-8"></div>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        La mayoría de los networkers fracasan porque dependen de la suerte o de agotar su mercado cálido. Nosotros instalamos una infraestructura digital que te posiciona como el líder que los leads están buscando.
+      </p>
+    </div>
+    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group">
+        <span class="material-symbols-outlined text-primary text-[48px] mb-6 block group-hover:scale-110 transition-transform">ac_unit</span>
+        <h3 class="font-headline-sm text-headline-sm mb-4">Leads Fríos</h3>
+        <p class="text-on-surface-variant font-body-md">Eliminamos la fricción del primer contacto mediante calentamiento algorítmico y pauta segmentada.</p>
+      </div>
+      <div class="p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group">
+        <span class="material-symbols-outlined text-primary text-[48px] mb-6 block group-hover:scale-110 transition-transform">schedule</span>
+        <h3 class="font-headline-sm text-headline-sm mb-4">Seguimiento lento</h3>
+        <p class="text-on-surface-variant font-body-md">Automatizamos el 90% del seguimiento para que solo hables con personas listas para firmar.</p>
+      </div>
+      <div class="p-8 bg-surface-container-low border border-white/5 rounded-xl hover:border-primary/50 transition-all group md:col-span-2">
+        <span class="material-symbols-outlined text-primary text-[48px] mb-6 block group-hover:scale-110 transition-transform">present_to_all</span>
+        <h3 class="font-headline-sm text-headline-sm mb-4">Sin sistema escalable</h3>
+        <p class="text-on-surface-variant font-body-md">Creamos ecosistemas de captación de alta conversión con pauta + funnel + CRM integrados que funcionan mientras duermes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="py-section-gap bg-surface-container-lowest relative overflow-hidden" id="testimonials">
+  <div class="px-grid-margin mb-20 flex flex-col md:flex-row justify-between items-end gap-10">
+    <div>
+      <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">Testimonios Reales</p>
+      <h2 class="font-display-lg text-display-lg max-w-xl">El impacto de AtraeLab en números.</h2>
+    </div>
+    <div class="flex gap-12 text-right">
+      <div>
+        <span class="text-display-xl font-display-xl text-primary">30+</span>
+        <p class="font-label-bold text-on-surface-variant">EQUIPOS ACTIVOS</p>
+      </div>
+      <div>
+        <span class="text-display-xl font-display-xl text-primary">&lt;5 min</span>
+        <p class="font-label-bold text-on-surface-variant">VELOCIDAD AL LEAD</p>
+      </div>
+      <div class="hidden sm:block">
+        <span class="text-display-xl font-display-xl text-primary">1</span>
+        <p class="font-label-bold text-on-surface-variant">SISTEMA ÚNICO</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="px-grid-margin grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Featured: Beatriz Vidal (sin foto → iniciales BV) -->
+    <div class="md:col-span-2 bg-secondary p-10 rounded-2xl border-l-4 border-primary relative flex flex-col md:flex-row gap-10">
+      <div class="flex-1">
+        <p class="text-body-lg font-body-lg italic mb-8">"Implementar el sistema de AtraeLab cambió por completo la dinámica de mi equipo. Dejamos de perseguir personas para convertirnos en un polo de atracción de líderes calificados."</p>
+        <div class="flex items-center gap-4">
+          <div style="width:56px;height:56px;border-radius:50%;background:#1A2740;border:1px solid rgba(200,216,75,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:#C8D84B">BV</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-white">Beatriz Vidal</h4>
+            <p class="text-primary font-label-bold text-[12px]">Top Earner · inCruises</p>
+          </div>
+        </div>
+      </div>
+      <div class="hidden lg:block w-1/3">
+        <div class="bg-background/50 p-4 rounded-xl border border-white/5 h-full flex flex-col justify-center items-center text-center">
+          <span class="text-display-lg font-display-lg text-primary">85%</span>
+          <p class="text-[12px] font-label-bold text-on-surface-variant">INCREMENTO EN CIERRES</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Henry Orzan -->
+    <div class="grid grid-cols-1 gap-6">
+      <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <img alt="Henry Orzan" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/d5565e6204db0f5be0dc7c26d656f5ffb438920cd9d6b1f6/556b14b1-a8de-41e0-a1c3-186517f8bb1f.jpg"/>
+          <span class="font-label-bold">Henry Orzan</span>
+        </div>
+        <p class="text-on-surface-variant font-body-md">"La claridad del sistema es impresionante. El ROI fue inmediato."</p>
+      </div>
+      <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <img alt="Cristina Isacura" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/765c68a0ab0e30ea0869337aaf18d262986b38bf801853d0/a19c822a-762c-4f1c-a3c6-54e13248323f.jpeg"/>
+          <span class="font-label-bold">Cristina Isacura</span>
+        </div>
+        <p class="text-on-surface-variant font-body-md">"Soporte de primer nivel y resultados predecibles."</p>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Lisseth" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/73af6d78d22e1d814ca2e309a72374a60e66ff5651bb5fae/b405a04a-db84-4b9b-8a93-ca1500af40de.jpeg"/>
+        <span class="font-label-bold">Lisseth</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md">"Un cambio total en mi forma de prospectar. Altamente recomendado."</p>
+    </div>
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Oscar Rubio" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/552484c203c8dcd95fbb43f5229db1fdd415c27b29d4b11f/5160b811-29eb-4a91-8b77-4e44f586b3fb.jpeg"/>
+        <span class="font-label-bold">Oscar Rubio</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md">"Resultados tangibles desde el primer mes. Un sistema sólido."</p>
+    </div>
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Thaiana Ledezma" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/f86a5b50f60b55518820f0a90fb724320f44c464fc6f29e3/1270a078-0a50-4d22-8d3a-9201e812c608.jpg"/>
+        <span class="font-label-bold">Thaiana Ledezma</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md">"Atención al detalle y eficiencia máxima en cada paso."</p>
+    </div>
+
+    <!-- Lina Hurtado -->
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Lina Hurtado" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/4583827f6932ae1b5abf4ed99ed14f1e6971ca8011fc3cb1/be67f3ae-6f7a-4dac-8cbe-d35266c0974b.jpg"/>
+        <span class="font-label-bold">Lina Hurtado</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md">"El sistema funciona. Pasé de buscar prospectos a recibirlos cada día."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CRM DEMO ── -->
+<section class="py-section-gap px-grid-margin bg-background relative overflow-hidden">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-5">
+      <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">LeadShield CRM</p>
+      <h2 class="font-display-lg text-display-lg mb-8 leading-tight">Control absoluto de tu <span class="text-primary">pipeline.</span></h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+        Nuestra interfaz personalizada te permite ver en tiempo real en qué etapa se encuentra cada prospecto. Sin hojas de cálculo, sin olvidos.
+      </p>
+      <ul class="space-y-4 mb-10">
+        <li class="flex items-center gap-3 text-on-surface-variant">
+          <span class="material-symbols-outlined text-primary">check_circle</span>
+          Notificaciones instantáneas de WhatsApp
+        </li>
+        <li class="flex items-center gap-3 text-on-surface-variant">
+          <span class="material-symbols-outlined text-primary">check_circle</span>
+          5 agentes de IA activos para seguimiento
+        </li>
+        <li class="flex items-center gap-3 text-on-surface-variant">
+          <span class="material-symbols-outlined text-primary">check_circle</span>
+          Scoring de leads automático
+        </li>
+        <li class="flex items-center gap-3 text-on-surface-variant">
+          <span class="material-symbols-outlined text-primary">check_circle</span>
+          Reportes semanales automáticos
+        </li>
+      </ul>
+      <a href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer"
+         class="bg-primary text-on-primary font-label-bold px-8 py-4 rounded-lg inline-flex items-center gap-2 hover:lime-glow transition-all">
+        Ver demo en vivo
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+    <div class="lg:col-span-7 relative">
+      <div class="relative z-10 hover-lift transition-all duration-1000 mock-window p-0 rounded-2xl overflow-hidden" style="box-shadow:0 0 100px rgba(200,216,75,0.1)">
+        <div class="mock-header" style="padding:14px 20px">
+          <div class="mock-dots">
+            <span style="background:#EF4444"></span>
+            <span style="background:#F59E0B"></span>
+            <span style="background:#22C55E"></span>
+          </div>
+          <span class="mock-title" style="font-size:13px">LeadShield CRM · Vista general</span>
+          <span class="mock-live">● Live</span>
+        </div>
+        <div style="padding:20px;background:#0A1520">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+            <div style="background:#1A2740;border:1px solid rgba(200,216,75,0.1);border-radius:10px;padding:16px">
+              <p style="font-size:10px;color:#7A8FA8;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Leads hoy</p>
+              <p style="font-size:28px;font-weight:800;color:#C8D84B;font-family:'Bricolage Grotesque',sans-serif;line-height:1">28</p>
+            </div>
+            <div style="background:#1A2740;border:1px solid rgba(200,216,75,0.1);border-radius:10px;padding:16px">
+              <p style="font-size:10px;color:#7A8FA8;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Este mes</p>
+              <p style="font-size:28px;font-weight:800;color:#C8D84B;font-family:'Bricolage Grotesque',sans-serif;line-height:1">161</p>
+            </div>
+            <div style="background:#1A2740;border:1px solid rgba(200,216,75,0.1);border-radius:10px;padding:16px">
+              <p style="font-size:10px;color:#7A8FA8;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Velocidad</p>
+              <p style="font-size:28px;font-weight:800;color:#C8D84B;font-family:'Bricolage Grotesque',sans-serif;line-height:1">4.2m</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+            <div style="background:#111E2E;border-radius:8px;padding:10px">
+              <p style="font-size:9px;color:#3B82F6;font-weight:700;text-transform:uppercase;border-bottom:2px solid #3B82F6;padding-bottom:6px;margin-bottom:8px">Nuevo · 8</p>
+              <div style="background:#0A1520;border-left:2px solid #3B82F6;border-radius:4px;padding:6px;margin-bottom:4px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">Lucía F.</p></div>
+              <div style="background:#0A1520;border-left:2px solid #3B82F6;border-radius:4px;padding:6px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">+7 más</p></div>
+            </div>
+            <div style="background:#111E2E;border-radius:8px;padding:10px">
+              <p style="font-size:9px;color:#C8D84B;font-weight:700;text-transform:uppercase;border-bottom:2px solid #C8D84B;padding-bottom:6px;margin-bottom:8px">Contactado · 11</p>
+              <div style="background:#0A1520;border-left:2px solid #C8D84B;border-radius:4px;padding:6px;margin-bottom:4px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">Ana G.</p></div>
+              <div style="background:#0A1520;border-left:2px solid #C8D84B;border-radius:4px;padding:6px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">+10 más</p></div>
+            </div>
+            <div style="background:#111E2E;border-radius:8px;padding:10px">
+              <p style="font-size:9px;color:#A78BFA;font-weight:700;text-transform:uppercase;border-bottom:2px solid #A78BFA;padding-bottom:6px;margin-bottom:8px">Demo · 7</p>
+              <div style="background:#0A1520;border-left:2px solid #A78BFA;border-radius:4px;padding:6px;margin-bottom:4px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">Diego M.</p></div>
+              <div style="background:#0A1520;border-left:2px solid #A78BFA;border-radius:4px;padding:6px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">+6 más</p></div>
+            </div>
+            <div style="background:#111E2E;border-radius:8px;padding:10px">
+              <p style="font-size:9px;color:#34D399;font-weight:700;text-transform:uppercase;border-bottom:2px solid #34D399;padding-bottom:6px;margin-bottom:8px">Cierre · 3</p>
+              <div style="background:#0A1520;border-left:2px solid #34D399;border-radius:4px;padding:6px;margin-bottom:4px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">Juan T. ✓</p></div>
+              <div style="background:#0A1520;border-left:2px solid #34D399;border-radius:4px;padding:6px"><p style="font-size:10px;color:#EEF0E8;font-weight:600">+2 más</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+      <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="py-section-gap px-grid-margin border-y border-secondary/10 bg-surface-container-low" id="process">
+  <div class="text-center mb-20">
+    <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">Cómo funciona</p>
+    <h2 class="font-display-lg text-display-lg">El Método <span class="text-primary italic">AtraeLab</span></h2>
+    <p class="text-on-surface-variant max-w-xl mx-auto mt-4">Un despliegue táctico de 5 fases para dominar tu captación.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+    <div class="relative group">
+      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">1</span>
+      <div class="pt-12 relative z-10">
+        <h4 class="font-headline-sm mb-4">Diagnóstico</h4>
+        <p class="text-on-surface-variant text-sm">Analizamos tu operación actual y definimos qué necesita tu negocio para escalar.</p>
+      </div>
+    </div>
+    <div class="relative group">
+      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">2</span>
+      <div class="pt-12 relative z-10">
+        <h4 class="font-headline-sm mb-4">Funnel</h4>
+        <p class="text-on-surface-variant text-sm">Construimos la landing de captación y el embudo de conversión para tu oferta.</p>
+      </div>
+    </div>
+    <div class="relative group">
+      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">3</span>
+      <div class="pt-12 relative z-10">
+        <h4 class="font-headline-sm mb-4">Lanzamiento</h4>
+        <p class="text-on-surface-variant text-sm">Encendemos las campañas de Meta, Google o TikTok con la segmentación correcta.</p>
+      </div>
+    </div>
+    <div class="relative group">
+      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">4</span>
+      <div class="pt-12 relative z-10">
+        <h4 class="font-headline-sm mb-4">CRM + IA</h4>
+        <p class="text-on-surface-variant text-sm">Activamos LeadShield con agentes de IA para seguimiento automático en menos de 5 minutos.</p>
+      </div>
+    </div>
+    <div class="relative group">
+      <span class="text-[120px] font-display-xl absolute -top-16 -left-4 text-white/5 group-hover:text-primary/10 transition-colors">5</span>
+      <div class="pt-12 relative z-10">
+        <h4 class="font-headline-sm mb-4">Escala</h4>
+        <p class="text-on-surface-variant text-sm">Optimizamos con reportes semanales y check-ins para duplicar resultados cada trimestre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="py-section-gap px-grid-margin" id="pricing">
+  <div class="text-center mb-20">
+    <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">Planes</p>
+    <h2 class="font-display-lg text-display-lg">Inversión en <span class="text-primary">Crecimiento</span></h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+    <!-- Plan 1: CRM Solo -->
+    <div class="p-10 bg-secondary/30 border border-white/5 rounded-2xl flex flex-col">
+      <h4 class="font-headline-sm mb-2">CRM Solo</h4>
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="text-display-lg font-display-lg">$147</span>
+        <span class="text-on-surface-variant">/mes</span>
+      </div>
+      <p class="text-[12px] font-label-bold text-primary mb-8">Sin setup fee</p>
+      <ul class="space-y-3 mb-10 flex-1">
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> LeadShield CRM completo
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> 5 agentes de IA activos
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Notificaciones WhatsApp
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Reportes semanales automáticos
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant/40 text-sm">
+          <span class="material-symbols-outlined text-on-surface-variant/30 text-[18px]">close</span> Gestión de pauta
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant/40 text-sm">
+          <span class="material-symbols-outlined text-on-surface-variant/30 text-[18px]">close</span> Landing de captación
+        </li>
+      </ul>
+      <a href="#contacto" class="w-full border border-primary/50 text-primary font-label-bold py-4 rounded-lg hover:bg-primary/10 transition-all text-center block">
+        Empezar con CRM
+      </a>
+    </div>
+
+    <!-- Plan 2: Sistema Completo (FEATURED) -->
+    <div class="p-10 bg-primary/5 border-2 border-primary rounded-2xl flex flex-col relative lime-glow transform scale-105 z-10">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] font-black uppercase px-4 py-1 rounded-full whitespace-nowrap">Más popular</div>
+      <h4 class="font-headline-sm mb-2">Sistema Completo</h4>
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="text-display-lg font-display-lg">$750</span>
+        <span class="text-on-surface-variant">/mes</span>
+      </div>
+      <p class="text-[12px] font-label-bold text-primary mb-8">+ $500 setup único al inicio</p>
+      <ul class="space-y-3 mb-10 flex-1">
+        <li class="flex items-center gap-2 text-on-surface text-sm font-bold">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Todo lo del plan CRM
+        </li>
+        <li class="flex items-center gap-2 text-on-surface text-sm font-bold">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Meta Ads gestionado
+        </li>
+        <li class="flex items-center gap-2 text-on-surface text-sm font-bold">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Landing de captación
+        </li>
+        <li class="flex items-center gap-2 text-on-surface text-sm font-bold">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Campaña activa semana 2
+        </li>
+        <li class="flex items-center gap-2 text-on-surface text-sm font-bold">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Soporte WhatsApp directo
+        </li>
+        <li class="flex items-center gap-2 text-on-surface text-sm font-bold">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Check-in cada 2 semanas
+        </li>
+      </ul>
+      <a href="#contacto" class="w-full bg-primary text-on-primary font-label-bold py-4 rounded-lg hover:brightness-110 transition-all text-center block">
+        Quiero el sistema completo
+      </a>
+    </div>
+
+    <!-- Plan 3: Escala -->
+    <div class="p-10 bg-secondary/30 border border-white/5 rounded-2xl flex flex-col">
+      <h4 class="font-headline-sm mb-2">Escala</h4>
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="text-display-lg font-display-lg">$1,200</span>
+        <span class="text-on-surface-variant">/mes</span>
+      </div>
+      <p class="text-[12px] font-label-bold text-primary mb-8">+ $800 setup único al inicio</p>
+      <ul class="space-y-3 mb-10 flex-1">
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Todo lo anterior
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Multi-canal Meta+TikTok+Google
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Hasta 5 usuarios CRM
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Account Manager dedicado
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Estrategia de contenido mensual
+        </li>
+        <li class="flex items-center gap-2 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">check</span> Dashboard métricas real-time
+        </li>
+      </ul>
+      <a href="#contacto" class="w-full border border-primary/50 text-primary font-label-bold py-4 rounded-lg hover:bg-primary/10 transition-all text-center block">
+        Hablar sobre Escala
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT FORM ── -->
+<section id="contacto" style="background:#0A1520;padding:108px 5%">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+
+      <!-- Izquierda -->
+      <div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C8D84B;font-weight:600;margin-bottom:14px">DIAGNÓSTICO GRATUITO</div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(32px,4vw,48px);font-weight:800;line-height:1.08;letter-spacing:-.025em;color:#EEF0E8;margin-bottom:20px">¿Listo para ordenar<br/>tu captación?</h2>
+        <p style="color:#7A8FA8;font-size:16px;line-height:1.65;margin-bottom:32px">Revisamos tu operación y te mostramos exactamente qué está frenando tu reclutamiento hoy.</p>
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:flex-start;gap:14px">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(200,216,75,0.10);border:1px solid rgba(200,216,75,0.13);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0">🔍</div>
+            <div><strong style="color:#EEF0E8;font-size:15px;display:block;margin-bottom:3px">Análisis de tu embudo</strong><span style="font-size:14px;color:#7A8FA8">Revisamos tráfico, filtro, seguimiento y velocidad de respuesta.</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(200,216,75,0.10);border:1px solid rgba(200,216,75,0.13);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0">🗺️</div>
+            <div><strong style="color:#EEF0E8;font-size:15px;display:block;margin-bottom:3px">Mapa claro de canales</strong><span style="font-size:14px;color:#7A8FA8">Te decimos qué canal conviene para tu oferta, país y perfil de prospecto.</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(200,216,75,0.10);border:1px solid rgba(200,216,75,0.13);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0">⚡</div>
+            <div><strong style="color:#EEF0E8;font-size:15px;display:block;margin-bottom:3px">Respuesta en menos de 24h</strong><span style="font-size:14px;color:#7A8FA8">Sin spam. Tu información se usa solo para responderte.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div style="background:#1A2740;border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:40px">
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+            <div>
+              <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">Nombre completo</label>
+              <input name="full_name" type="text" placeholder="Tu nombre" required
+                style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;transition:border-color .2s"/>
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">Red o negocio</label>
+              <input name="network" type="text" placeholder="ej. inCruises" required
+                style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;transition:border-color .2s"/>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+            <div>
+              <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">WhatsApp</label>
+              <input name="phone" type="tel" placeholder="+1 305..." required
+                style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;transition:border-color .2s"/>
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">Email</label>
+              <input name="email" type="email" placeholder="tu@email.com" required
+                style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;transition:border-color .2s"/>
+            </div>
+          </div>
+          <div style="margin-bottom:18px">
+            <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">Etapa actual de tu red</label>
+            <select name="stage" required
+              style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;-webkit-appearance:none;transition:border-color .2s">
+              <option value="" disabled selected>Seleccioná una opción</option>
+              <option value="empezando">Estoy empezando</option>
+              <option value="equipo_pequeño">Tengo un equipo pequeño</option>
+              <option value="lideres_activos">Ya tengo líderes activos</option>
+              <option value="invierte_pauta">Ya invierto en pauta</option>
+            </select>
+          </div>
+          <div style="margin-bottom:18px">
+            <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">Presupuesto mensual para publicidad</label>
+            <select name="budget" required
+              style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;-webkit-appearance:none;transition:border-color .2s">
+              <option value="" disabled selected>Seleccioná un rango</option>
+              <option value="menos_100">Menos de USD 100</option>
+              <option value="100_300">USD 100 – 300</option>
+              <option value="300_500">USD 300 – 500</option>
+              <option value="mas_500">Más de USD 500</option>
+            </select>
+          </div>
+          <div style="margin-bottom:18px">
+            <label style="display:block;font-size:13px;font-weight:500;color:#7A8FA8;margin-bottom:8px">¿Qué querés mejorar? (opcional)</label>
+            <textarea name="message" placeholder="Contanos brevemente tu situación actual..."
+              style="width:100%;background:#111E2E;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;font-size:15px;color:#EEF0E8;resize:none;height:96px;line-height:1.55;transition:border-color .2s"></textarea>
+          </div>
+          <button type="submit" id="form-submit"
+            style="width:100%;background:#C8D84B;color:#0A1520;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;padding:16px;border-radius:8px;border:none;cursor:pointer;transition:all .2s">
+            Quiero el diagnóstico gratuito →
+          </button>
+          <p style="text-align:center;font-size:12px;color:#7A8FA8;margin-top:12px">Sin spam. Tu información se usa solo para responderte.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="bg-surface-container-lowest border-t border-secondary/10 w-full py-section-gap">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-grid-gutter px-grid-margin w-full">
+    <div class="flex flex-col gap-6">
+      <a href="#home" class="flex items-center gap-1">
+        <span class="text-headline-md font-headline-md font-black text-white uppercase tracking-tighter">atrae</span><span class="text-headline-md font-headline-md font-black text-primary uppercase tracking-tighter">Lab</span>
+      </a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">© 2025 AtraeLab. Pauta, funnel y CRM para network marketing.</p>
+      <div class="flex gap-3 pt-2">
+        <a href="https://www.instagram.com/atraelab" target="_blank" rel="noopener noreferrer"
+           class="w-9 h-9 rounded-lg bg-secondary/50 flex items-center justify-center hover:bg-primary transition-all group" aria-label="Instagram">
+          <span class="material-symbols-outlined text-[18px] text-white group-hover:text-background">photo_camera</span>
+        </a>
+        <a href="https://www.youtube.com/@atraelab" target="_blank" rel="noopener noreferrer"
+           class="w-9 h-9 rounded-lg bg-secondary/50 flex items-center justify-center hover:bg-primary transition-all group" aria-label="YouTube">
+          <span class="material-symbols-outlined text-[18px] text-white group-hover:text-background">videocam</span>
+        </a>
+        <a href="https://www.tiktok.com/@atraelab" target="_blank" rel="noopener noreferrer"
+           class="w-9 h-9 rounded-lg bg-secondary/50 flex items-center justify-center hover:bg-primary transition-all group" aria-label="TikTok">
+          <span class="material-symbols-outlined text-[18px] text-white group-hover:text-background">music_note</span>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h5 class="text-white font-label-bold mb-6">Blog</h5>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/blog/como-conseguir-prospectos-network-marketing">Cómo conseguir prospectos</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/blog/leads-meta-frios-network-marketing">Leads Meta en frío</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/blog/sistema-lideres-incruises-duplicar-red">Sistema para inCruises</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="text-white font-label-bold mb-6">Servicios</h5>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/servicios/meta-ads">Meta Ads</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/servicios/google-ads">Google Ads</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/servicios/tiktok-ads">TikTok Ads</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="https://leads.atraelab.com" target="_blank" rel="noopener noreferrer">LeadShield CRM ↗</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="text-white font-label-bold mb-6">Legal</h5>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/legal/terminos">Términos de uso</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/legal/privacidad">Privacidad</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-all" href="/legal/cookies">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- ── SCRIPTS ── -->
+<script>
+// Nav scroll effect
+document.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  if (window.scrollY > 50) {
+    nav.style.padding = '12px 4rem';
+  } else {
+    nav.style.padding = '16px 4rem';
+  }
+});
+
+// Form submission
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('form-submit');
+  const form = e.target;
+  const data = {
+    full_name: form.full_name.value.trim(),
+    network:   form.network.value.trim(),
+    phone:     form.phone.value.trim(),
+    email:     form.email.value.trim(),
+    stage:     form.stage.value,
+    budget:    form.budget.value,
+    message:   form.message ? form.message.value.trim() : ''
+  };
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://leads.atraelab.com/api/public/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Error ' + res.status);
+    btn.textContent = '✓ Recibido. Te escribimos pronto.';
+    btn.style.background = '#34D399';
+    btn.style.color = '#0A1520';
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Diagnóstico Gratuito' });
+  } catch {
+    btn.textContent = 'Error — intentá de nuevo';
+    btn.style.background = '#EF4444';
+    btn.style.color = '#fff';
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.textContent = 'Quiero el diagnóstico gratuito →';
+      btn.style.background = '#C8D84B';
+      btn.style.color = '#0A1520';
+    }, 3000);
+  }
+}
+</script>
+
+</body>
+</html>
