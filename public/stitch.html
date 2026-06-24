@@ -1003,18 +1003,18 @@ async function handleSubmit(e) {
   const btn = document.getElementById('form-submit');
   const form = e.target;
   const data = {
-    full_name: form.full_name.value.trim(),
-    network:   form.network.value.trim(),
-    phone:     form.phone.value.trim(),
-    email:     form.email.value.trim(),
-    stage:     form.stage.value,
-    budget:    form.budget.value,
-    message:   form.message ? form.message.value.trim() : ''
+    full_name:     form.full_name.value.trim(),
+    red_negocio:   form.network.value.trim(),
+    phone:         form.phone.value.trim(),
+    email:         form.email.value.trim(),
+    etapa_actual:  form.stage.value,
+    presupuesto:   form.budget.value,
+    comentario:    form.message ? form.message.value.trim() : ''
   };
   btn.textContent = 'Enviando...';
   btn.disabled = true;
   try {
-    const res = await fetch('https://leads.atraelab.com/api/public/contact', {
+    const res = await fetch('https://hook.us1.make.com/7ialt3b1ueldg131yde3q1ytcidlmded', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
