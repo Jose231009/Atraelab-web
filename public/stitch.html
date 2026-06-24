@@ -155,8 +155,12 @@
       .py-section-gap { padding-top: 4rem !important; padding-bottom: 4rem !important; }
       .text-display-xl { font-size: 42px !important; line-height: 1.05 !important; }
       .text-display-lg { font-size: 30px !important; line-height: 1.15 !important; }
+      .text-headline-md { font-size: 22px !important; }
+      .text-headline-sm { font-size: 16px !important; }
       .marquee-content { animation-duration: 25s !important; }
-      .marquee-content .text-headline-sm { font-size: 16px !important; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .px-grid-margin { padding-left: 2rem !important; padding-right: 2rem !important; }
     }
 
     /* Contact section responsive grid */
@@ -416,97 +420,150 @@
 <section class="py-section-gap bg-surface-container-lowest relative overflow-hidden" id="testimonials">
   <div class="px-grid-margin mb-20 flex flex-col md:flex-row justify-between items-end gap-10">
     <div>
-      <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">Testimonios Reales</p>
+      <p class="text-primary font-label-bold uppercase mb-4 tracking-widest">Testimonios reales</p>
       <h2 class="font-display-lg text-display-lg max-w-xl">El impacto de AtraeLab en números.</h2>
     </div>
-    <div class="grid grid-cols-3 gap-4 text-right">
+    <div class="flex gap-12 text-right">
       <div>
         <span class="text-display-xl font-display-xl text-primary">30+</span>
-        <p class="font-label-bold text-on-surface-variant">EQUIPOS ACTIVOS</p>
+        <p class="font-label-bold text-on-surface-variant">EQUIPOS ESCALADOS</p>
       </div>
       <div>
         <span class="text-display-xl font-display-xl text-primary">&lt;5 min</span>
-        <p class="font-label-bold text-on-surface-variant">VELOCIDAD AL LEAD</p>
+        <p class="font-label-bold text-on-surface-variant">RESPUESTA A LEADS</p>
       </div>
-      <div>
-        <span class="text-display-xl font-display-xl text-primary">1</span>
-        <p class="font-label-bold text-on-surface-variant">SISTEMA ÚNICO</p>
+      <div class="hidden sm:block">
+        <span class="text-display-xl font-display-xl text-primary">11</span>
+        <p class="font-label-bold text-on-surface-variant">RESEÑAS VERIFICADAS</p>
       </div>
     </div>
   </div>
 
-  <div class="px-grid-margin grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- Featured: Beatriz Vidal (sin foto → iniciales BV) -->
+  <div class="px-grid-margin grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
+    <!-- FEATURED: Beatriz Vidal (sin foto -> iniciales) -->
     <div class="md:col-span-2 bg-secondary p-6 md:p-10 rounded-2xl border-l-4 border-primary relative flex flex-col md:flex-row gap-6 md:gap-10">
       <div class="flex-1">
-        <p class="text-body-lg font-body-lg italic mb-8">"Implementar el sistema de AtraeLab cambió por completo la dinámica de mi equipo. Dejamos de perseguir personas para convertirnos en un polo de atracción de líderes calificados."</p>
+        <p class="text-body-lg font-body-lg italic mb-8">"Estoy encantada con los resultados. Antes sentía que se me había terminado la lista de contactos y que tenía que salir a buscar prospectos sin rumbo, sin saber si realmente estaba hablando con las personas adecuadas. Ahora es completamente diferente, son los prospectos quienes me contactan directamente por WhatsApp, incluso desde diferentes lugares, ha supuesto un antes y un después en mi negocio."</p>
         <div class="flex items-center gap-4">
-          <div style="width:56px;height:56px;border-radius:50%;background:#1A2740;border:1px solid rgba(200,216,75,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:#C8D84B">BV</span>
-          </div>
+          <div class="w-14 h-14 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center font-black text-primary text-lg flex-shrink-0">BV</div>
           <div>
             <h4 class="font-headline-sm text-white">Beatriz Vidal</h4>
-            <p class="text-primary font-label-bold text-[12px]">Top Earner · inCruises</p>
+            <p class="text-primary font-label-bold text-[12px]">Marketing Director · España · inCruises</p>
           </div>
         </div>
       </div>
       <div class="hidden lg:block w-1/3">
         <div class="bg-background/50 p-4 rounded-xl border border-white/5 h-full flex flex-col justify-center items-center text-center">
-          <span class="text-display-lg font-display-lg text-primary">85%</span>
-          <p class="text-[12px] font-label-bold text-on-surface-variant">INCREMENTO EN CIERRES</p>
+          <span class="text-display-lg font-display-lg text-primary">0→8</span>
+          <p class="text-[12px] font-label-bold text-on-surface-variant">PROSPECTOS EN UN DÍA</p>
         </div>
       </div>
     </div>
 
-    <!-- Henry Orzan -->
+    <!-- Columna lateral: Henry Orzan + Cristina Isacura -->
     <div class="grid grid-cols-1 gap-6">
       <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
         <div class="flex items-center gap-3 mb-4">
-          <img alt="Henry Orzan" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/d5565e6204db0f5be0dc7c26d656f5ffb438920cd9d6b1f6/556b14b1-a8de-41e0-a1c3-186517f8bb1f.jpg"/>
+          <img alt="Henry Orzan" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/d5565e6204db0f5be0dc7c26d656f5ffb438920cd9d6b1f6/556b14b1-a8de-41e0-a1c3-186517f8bb1f.jpg" onerror="this.style.display='none'"/>
           <span class="font-label-bold">Henry Orzan</span>
         </div>
-        <p class="text-on-surface-variant font-body-md">"La claridad del sistema es impresionante. El ROI fue inmediato."</p>
+        <p class="text-on-surface-variant font-body-md">"Llevo más de dos años trabajando de la mano de Jose y su equipo, siempre a disposición y con iniciativa de mejorar 100% recomendados todo mi equipo ya cuenta con un sistema de adquisición de Leads duplicable y funcional."</p>
       </div>
       <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
         <div class="flex items-center gap-3 mb-4">
-          <img alt="Cristina Isacura" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/765c68a0ab0e30ea0869337aaf18d262986b38bf801853d0/a19c822a-762c-4f1c-a3c6-54e13248323f.jpeg"/>
+          <img alt="Cristina Isacura" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/765c68a0ab0e30ea0869337aaf18d262986b38bf801853d0/a19c822a-762c-4f1c-a3c6-54e13248323f.jpeg" onerror="this.style.display='none'"/>
           <span class="font-label-bold">Cristina Isacura</span>
         </div>
-        <p class="text-on-surface-variant font-body-md">"Soporte de primer nivel y resultados predecibles."</p>
+        <p class="text-on-surface-variant font-body-md">"Esta plataforma me permitió gestionar mejor mi equipo, automatizar tareas que antes me quitaban mucho tiempo y mantener un seguimiento constante de mis contactos. Gracias a eso, he podido desarrollar mi negocio en distintos países con mayor confianza y profesionalismo."</p>
       </div>
     </div>
 
-    <!-- Row 2 -->
+  </div>
+
+  <!-- GRID 2: Lisseth, Oscar Rubio, Lina Hurtado -->
+  <div class="px-grid-margin grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
     <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
       <div class="flex items-center gap-3 mb-4">
-        <img alt="Lisseth" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/73af6d78d22e1d814ca2e309a72374a60e66ff5651bb5fae/b405a04a-db84-4b9b-8a93-ca1500af40de.jpeg"/>
+        <img alt="Lisseth" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/73af6d78d22e1d814ca2e309a72374a60e66ff5651bb5fae/b405a04a-db84-4b9b-8a93-ca1500af40de.jpeg" onerror="this.style.display='none'"/>
         <span class="font-label-bold">Lisseth</span>
       </div>
-      <p class="text-on-surface-variant font-body-md">"Un cambio total en mi forma de prospectar. Altamente recomendado."</p>
-    </div>
-    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
-      <div class="flex items-center gap-3 mb-4">
-        <img alt="Oscar Rubio" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/552484c203c8dcd95fbb43f5229db1fdd415c27b29d4b11f/5160b811-29eb-4a91-8b77-4e44f586b3fb.jpeg"/>
-        <span class="font-label-bold">Oscar Rubio</span>
-      </div>
-      <p class="text-on-surface-variant font-body-md">"Resultados tangibles desde el primer mes. Un sistema sólido."</p>
-    </div>
-    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
-      <div class="flex items-center gap-3 mb-4">
-        <img alt="Thaiana Ledezma" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/f86a5b50f60b55518820f0a90fb724320f44c464fc6f29e3/1270a078-0a50-4d22-8d3a-9201e812c608.jpg"/>
-        <span class="font-label-bold">Thaiana Ledezma</span>
-      </div>
-      <p class="text-on-surface-variant font-body-md">"Atención al detalle y eficiencia máxima en cada paso."</p>
+      <p class="text-on-surface-variant font-body-md mb-3">"Muy buena, son rápidos y efectivos a demás de que hay un trato muy cercano y son resolutivos e innovadores."</p>
+      <p class="text-primary font-label-bold text-[12px]">→ Tener leads sin buscarlos</p>
     </div>
 
-    <!-- Lina Hurtado -->
     <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
       <div class="flex items-center gap-3 mb-4">
-        <img alt="Lina Hurtado" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/4583827f6932ae1b5abf4ed99ed14f1e6971ca8011fc3cb1/be67f3ae-6f7a-4dac-8cbe-d35266c0974b.jpg"/>
+        <img alt="Oscar Rubio" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/552484c203c8dcd95fbb43f5229db1fdd415c27b29d4b11f/5160b811-29eb-4a91-8b77-4e44f586b3fb.jpeg" onerror="this.style.display='none'"/>
+        <span class="font-label-bold">Oscar Rubio</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md mb-3">"Excelente profesional, es muy implicado en el trabajo de tracking y creación de anuncios."</p>
+      <p class="text-primary font-label-bold text-[12px]">→ 10 leads por semana</p>
+    </div>
+
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Lina Hurtado" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/4583827f6932ae1b5abf4ed99ed14f1e6971ca8011fc3cb1/be67f3ae-6f7a-4dac-8cbe-d35266c0974b.jpg" onerror="this.style.display='none'"/>
         <span class="font-label-bold">Lina Hurtado</span>
       </div>
-      <p class="text-on-surface-variant font-body-md">"El sistema funciona. Pasé de buscar prospectos a recibirlos cada día."</p>
+      <p class="text-on-surface-variant font-body-md mb-3">"Tengo una muy buena experiencia ya que son personas muy comprometidas y eso hace que todo sea más fácil."</p>
+      <p class="text-primary font-label-bold text-[12px]">→ Primer rango en muy poco tiempo</p>
     </div>
+
+  </div>
+
+  <!-- GRID 3: Thaiana Ledezma, Andrea Peña, Misvel Acosta -->
+  <div class="px-grid-margin grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Thaiana Ledezma" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/f86a5b50f60b55518820f0a90fb724320f44c464fc6f29e3/1270a078-0a50-4d22-8d3a-9201e812c608.jpg" onerror="this.style.display='none'"/>
+        <span class="font-label-bold">Thaiana Ledezma</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md mb-3">"Muy agradecida con el equipo por el aporte invaluable, excelente organización de mi tiempo gracias a esta potente herramienta. Excelente comunicación y resultados."</p>
+      <p class="text-primary font-label-bold text-[12px]">→ Negocio creció en diferentes países</p>
+    </div>
+
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Andrea Peña" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/4ac5fd82fd1c9825508c14cf8c135ad497279415deaf62bb/e8d46149-fde8-44a3-9a8e-95aaabbd2684.jpg" onerror="this.style.display='none'"/>
+        <span class="font-label-bold">Andrea Peña</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md mb-3">"Ahora me entran más prospectos por medio de la publicidad."</p>
+      <p class="text-primary font-label-bold text-[12px]">→ 4 prospectos en un día, 2 contactados</p>
+    </div>
+
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Misvel Acosta" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/dae5be1114bc20d633f77e175b102b22ed96e2e11ee061d7/a7fd9fbe-eebd-40ca-8a30-e7d91eeceb95.jpeg" onerror="this.style.display='none'"/>
+          <span class="font-label-bold">Misvel Acosta</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md mb-3">"Conocí AtraeLab mediante un socio de la compañía, estaba buscando expandir mi negocio. Me encanta trabajar con ellos, son personas muy profesionales que te aconsejarán qué es lo mejor para el crecimiento de tus redes. Los recomendaría sin dudarlo."</p>
+      <p class="text-primary font-label-bold text-[12px]">→ Pasé de 0 a 10</p>
+    </div>
+
+  </div>
+
+  <!-- GRID 4: Lilibeth + Vanesa Saez (ancha) -->
+  <div class="px-grid-margin grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl">
+      <div class="flex items-center gap-3 mb-4">
+        <img alt="Lilibeth" class="w-10 h-10 rounded-full object-cover" src="https://lsgeaonumjmjtexfjpsz.supabase.co/storage/v1/object/public/testimonials/photos/73f9987b113fd7109949260ad56286ba058bf0a84a11585b/e419d8f9-2472-4b67-b932-e3bf1ccaa6e4.jpg" onerror="this.style.display='none'"/>
+        <span class="font-label-bold">Lilibeth</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md">"Mi experiencia con esta empresa ha sido bastante buena. Llevo casi un año trabajando con ellos y durante este tiempo he encontrado un equipo profesional, comprometido y dispuesto a ayudar cuando lo he necesitado. He tenido la oportunidad de aprender cosas nuevas, crecer tanto a nivel personal como profesional."</p>
+    </div>
+
+    <div class="p-6 bg-surface-container-high border border-white/5 rounded-xl flex flex-col">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center font-black text-primary text-sm flex-shrink-0">VS</div>
+        <span class="font-label-bold">Vanesa Saez</span>
+      </div>
+      <p class="text-on-surface-variant font-body-md">"Me encanta el trabajo que desempeñan, estoy muy contenta."</p>
+    </div>
+
   </div>
 </section>
 
