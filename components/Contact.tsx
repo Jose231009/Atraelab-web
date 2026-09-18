@@ -6,6 +6,7 @@ import { useInView } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { sendEmail } from "@/lib/send-email";
 import { CheckCircle2, AlertCircle, Loader2, Zap } from "lucide-react";
 
@@ -15,8 +16,11 @@ const schema = z.object({
   email: z.string().email("Ingresá un email válido"),
   whatsapp: z
     .string()
-    .min(8, "El WhatsApp debe tener al menos 8 dígitos")
-    .regex(/^\+?[\d\s\-()]+$/, "Número de teléfono inválido"),
+    .refine((val) => {
+      if (!val || !val.startsWith('+')) return false;
+      const phone = parsePhoneNumberFromString(val);
+      return phone?.isValid() ?? false;
+    }, "Número inválido para el país seleccionado"),
   teamSize: z.string().min(1, "Seleccioná la etapa de tu operación"),
   budget: z.string().min(1, "Seleccioná un rango de presupuesto"),
   message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres"),
@@ -54,13 +58,21 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [status, setStatus] = useState<Status>("idle");
+  const [phoneCC, setPhoneCC] = useState("57");
+  const [phoneLocal, setPhoneLocal] = useState("");
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+  const updatePhone = (cc: string, local: string) => {
+    const digits = local.replace(/\D/g, "");
+    setValue("whatsapp", digits ? `+${cc}${digits}` : "", { shouldValidate: !!digits });
+  };
 
   const onSubmit = async (data: FormData) => {
     setStatus("loading");
@@ -68,6 +80,8 @@ export default function Contact() {
     if (result.success) {
       setStatus("success");
       reset();
+      setPhoneCC("57");
+      setPhoneLocal("");
     } else {
       setStatus("error");
     }
@@ -234,12 +248,37 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="flex flex-col gap-1.5">
                       <FieldLabel>WhatsApp</FieldLabel>
-                      <input
-                        {...register("whatsapp")}
-                        type="tel"
-                        placeholder="+54 9 11 1234-5678"
-                        className={inputClass}
-                      />
+                      <div className="flex gap-2">
+                        <select
+                          value={phoneCC}
+                          onChange={e => { setPhoneCC(e.target.value); updatePhone(e.target.value, phoneLocal); }}
+                          className="w-[105px] flex-shrink-0 bg-white/5 border border-white/10 rounded-xl px-2 py-3.5 text-white text-sm focus:outline-none focus:border-[#c8f000]/50 focus:ring-1 focus:ring-[#c8f000]/20 transition-all hover:border-white/20"
+                        >
+                          <option value="34">🇪🇸 +34</option>
+                          <option value="52">🇲🇽 +52</option>
+                          <option value="57">🇨🇴 +57</option>
+                          <option value="56">🇨🇱 +56</option>
+                          <option value="54">🇦🇷 +54</option>
+                          <option value="51">🇵🇪 +51</option>
+                          <option value="1">🇺🇸 +1</option>
+                          <option value="58">🇻🇪 +58</option>
+                          <option value="593">🇪🇨 +593</option>
+                          <option value="591">🇧🇴 +591</option>
+                          <option value="595">🇵🇾 +595</option>
+                          <option value="598">🇺🇾 +598</option>
+                          <option value="55">🇧🇷 +55</option>
+                          <option value="44">🇬🇧 +44</option>
+                          <option value="351">🇵🇹 +351</option>
+                        </select>
+                        <input
+                          type="tel"
+                          value={phoneLocal}
+                          onChange={e => { setPhoneLocal(e.target.value); updatePhone(phoneCC, e.target.value); }}
+                          placeholder="314 385 7823"
+                          className={`flex-1 min-w-0 ${inputClass}`}
+                        />
+                      </div>
+                      <input type="hidden" {...register("whatsapp")} />
                       <FieldError message={errors.whatsapp?.message} />
                     </div>
 

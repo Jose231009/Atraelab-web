@@ -20,6 +20,8 @@ function Avatar({ src, alt, initials, className = 'tc-avatar', style }: { src: s
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [phoneCC, setPhoneCC] = useState('57');
+  const [phoneLocal, setPhoneLocal] = useState('');
 
   useEffect(() => {
     const nav = document.getElementById('nav');
@@ -84,7 +86,7 @@ export default function Home() {
     const result = await sendEmail({
       name: (data.get('name') as string) || '',
       business: (data.get('business') as string) || '',
-      whatsapp: (data.get('whatsapp') as string) || '',
+      whatsapp: `+${phoneCC}${phoneLocal.replace(/\D/g, '')}`,
       email: (data.get('email') as string) || '',
       teamSize: (data.get('teamSize') as string) || '',
       budget: (data.get('budget') as string) || '',
@@ -93,6 +95,8 @@ export default function Home() {
     if (result.success) {
       setFormStatus('success');
       form.reset();
+      setPhoneLocal('');
+      setPhoneCC('57');
     } else {
       setFormStatus('error');
     }
@@ -426,80 +430,59 @@ export default function Home() {
       <section className="s-pricing" id="precios">
         <div className="container">
           <div className="s-label">Planes y precios</div>
-          <h2>Transparencia total<br />desde el primer día</h2>
+          <h2>Dos formas claras<br />de empezar bien</h2>
           <p className="s-intro">
-            Sin costos ocultos. El adspend lo pagás vos directo a Meta — nosotros gestionamos
-            la estrategia y el sistema.
+            Pensados para Colombia, Chile y México. Un plan para ordenar la captación y otro
+            para escalar con más automatización, contenido y soporte.
           </p>
           <div className="pr-grid">
 
             <div className="prcard reveal">
-              <div className="pr-name">CRM Solo</div>
-              <p className="pr-desc">Para distribuidores que ya tienen tráfico y necesitan orden en el seguimiento.</p>
+              <div className="pr-name">Growth</div>
+              <p className="pr-desc">Para equipos que ya están captando y necesitan una operación más clara para filtrar, ordenar y dar seguimiento.</p>
               <div className="pr-price">
                 <span className="pr-currency">$</span>
-                <span className="pr-num">147</span>
+                <span className="pr-num">350</span>
                 <span className="pr-per">/mes</span>
               </div>
-              <div className="pr-setup">Sin setup fee</div>
+              <div className="pr-setup">Base sólida para operar con orden</div>
               <div className="pr-divider" />
               <ul className="pr-features">
-                <li>LeadShield CRM completo</li>
-                <li>5 agentes de IA activos</li>
-                <li>Notificaciones WhatsApp</li>
-                <li>Reportes semanales automáticos</li>
-                <li className="no">Gestión de pauta Meta Ads</li>
-                <li className="no">Landing de captación</li>
+                <li>LeadShield CRM configurado para tu operación</li>
+                <li>Formulario filtrado + automatización base</li>
+                <li>Avisos por correo y WhatsApp para tu equipo</li>
+                <li>Revisión semanal de operación y ajustes</li>
+                <li>Hasta 3 videos al mes para captación</li>
+                <li>Tu equipo atiende los prospectos dentro de un sistema mucho más claro</li>
               </ul>
-              <button className="pr-cta outline" onClick={goContacto}>Empezar con CRM</button>
+              <button className="pr-cta outline" onClick={goContacto}>Quiero Growth</button>
             </div>
 
             <div className="prcard featured reveal d1">
-              <div className="pr-badge">Más popular</div>
-              <div className="pr-name">Sistema completo</div>
-              <p className="pr-desc">Para líderes con equipo que quieren prospectos constantes con seguimiento ordenado.</p>
+              <div className="pr-badge">Más completo</div>
+              <div className="pr-name">Scale</div>
+              <p className="pr-desc">Para operaciones que quieren más volumen, más automatización y una capa de marketing más completa sobre la misma base.</p>
               <div className="pr-price">
                 <span className="pr-currency">$</span>
-                <span className="pr-num">750</span>
+                <span className="pr-num">500</span>
                 <span className="pr-per">/mes</span>
               </div>
-              <div className="pr-setup">+ <b>$500 setup</b> único al inicio</div>
+              <div className="pr-setup">Más sistema, más soporte, más estructura</div>
               <div className="pr-divider" />
               <ul className="pr-features">
-                <li>Todo lo del plan CRM</li>
-                <li>Meta Ads gestionado estratégicamente</li>
-                <li>Landing de captación con precalificación</li>
-                <li>Campaña activa desde la semana 2</li>
-                <li>Soporte WhatsApp directo</li>
-                <li>Check-in de resultados cada 2 semanas</li>
+                <li>Todo lo de Growth</li>
+                <li>Hasta 4 videos al mes</li>
+                <li>ManyChat para automatización inicial</li>
+                <li>Email marketing para seguimiento y activación</li>
+                <li>Acompañamiento más cercano en flujo comercial y lectura operativa</li>
+                <li>Mejor soporte para campañas, agenda y control del equipo</li>
               </ul>
-              <button className="pr-cta" onClick={goContacto}>Quiero el sistema completo</button>
-            </div>
-
-            <div className="prcard reveal d2">
-              <div className="pr-name">Escala</div>
-              <p className="pr-desc">Para redes de 20+ personas con presupuesto serio de pauta y múltiples canales.</p>
-              <div className="pr-price">
-                <span className="pr-currency">$</span>
-                <span className="pr-num">1,200</span>
-                <span className="pr-per">/mes</span>
-              </div>
-              <div className="pr-setup">+ <b>$800 setup</b> único al inicio</div>
-              <div className="pr-divider" />
-              <ul className="pr-features">
-                <li>Todo lo del plan Sistema</li>
-                <li>Multi-canal (Meta + TikTok + Google)</li>
-                <li>Hasta 5 usuarios en CRM</li>
-                <li>Account Manager dedicado</li>
-                <li>Estrategia de contenido mensual</li>
-                <li>Dashboard de métricas en tiempo real</li>
-              </ul>
-              <button className="pr-cta outline" onClick={goContacto}>Hablar sobre Escala</button>
+              <button className="pr-cta" onClick={goContacto}>Quiero Scale</button>
             </div>
 
           </div>
           <p style={{ textAlign: 'center', fontSize: '13px', color: 'var(--text2)', marginTop: '28px' }}>
-            Precios en USD · El adspend va directo desde tu cuenta a Meta/Google — AtraeLab no lo administra.
+            Precios en USD · Landing nueva, dominio, hosting, community management y automatizaciones avanzadas se cotizan aparte.
           </p>
         </div>
       </section>
@@ -663,7 +646,39 @@ export default function Home() {
                 <div className="frow">
                   <div className="fg">
                     <label className="flabel">WhatsApp</label>
-                    <input className="fi" name="whatsapp" type="tel" placeholder="+54 9 11..." required />
+                    <div style={{display:'flex',gap:'6px'}}>
+                      <select
+                        value={phoneCC}
+                        onChange={e => setPhoneCC(e.target.value)}
+                        className="fs"
+                        style={{width:'105px',flexShrink:0}}
+                      >
+                        <option value="34">🇪🇸 +34</option>
+                        <option value="52">🇲🇽 +52</option>
+                        <option value="57">🇨🇴 +57</option>
+                        <option value="56">🇨🇱 +56</option>
+                        <option value="54">🇦🇷 +54</option>
+                        <option value="51">🇵🇪 +51</option>
+                        <option value="1">🇺🇸 +1</option>
+                        <option value="58">🇻🇪 +58</option>
+                        <option value="593">🇪🇨 +593</option>
+                        <option value="591">🇧🇴 +591</option>
+                        <option value="595">🇵🇾 +595</option>
+                        <option value="598">🇺🇾 +598</option>
+                        <option value="55">🇧🇷 +55</option>
+                        <option value="44">🇬🇧 +44</option>
+                        <option value="351">🇵🇹 +351</option>
+                      </select>
+                      <input
+                        className="fi"
+                        type="tel"
+                        placeholder="314 385 7823"
+                        value={phoneLocal}
+                        onChange={e => setPhoneLocal(e.target.value)}
+                        required
+                        style={{flex:1,minWidth:0}}
+                      />
+                    </div>
                   </div>
                   <div className="fg">
                     <label className="flabel">Email</label>
