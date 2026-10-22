@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === '/') {
-    return NextResponse.rewrite(new URL('/stitch.html', request.url))
+    return NextResponse.rewrite(new URL('/v2.html', request.url))
   }
 }
 
